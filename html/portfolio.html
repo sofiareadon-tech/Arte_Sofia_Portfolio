@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Navegue pela galeria completa de trabalhos de Sofia.">
+    <title>A Arte de Sofia | Portfólio</title>
+    <link rel="stylesheet" href="../css/style.css?v=1.1">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+
+<body class="portfolio-page">
+    <div id="site-header"></div>
+    <div id="site-spotify"></div>
+
+
+    <main class="portfolio-page">
+        <h1>Galeria</h1>
+        <p>Estes são alguns dos projetos que fiz ao longo de um ano de aprendizagem. Clique em qualquer imagem para ver mais detalhes.</p>
+
+        <div class="portfolio-nav-buttons">
+            <a href="#design" class="filter-btn">Design</a>
+            <a href="#ilustracao" class="filter-btn">Ilustração</a>
+            <a href="#fotografia" class="filter-btn">Fotografia</a>
+        </div>
+
+        <div id="portfolio-sections">
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close"></span>
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Anterior"></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Seguinte"></button>
+    </div>
+
+    <div id="site-footer"></div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
