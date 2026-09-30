@@ -359,14 +359,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const toolContext = {
-        "Affinity": "Affinity Designer — design vetorial e identidade gráfica",
-        "Figma": "Figma — composição digital e prototipagem",
-        "Canva": "Canva — design de apresentação e banners",
-        "Ibis Paint X": "Ibis Paint X — Ilustração Digital",
-        "Ilustrator": "Adobe Illustrator — ilustração vetorial",
-        "Procreate": "Procreate — pintura digital e esboço",
-        "Photoshop": "Adobe Photoshop — edição de imagem e composição"
+    const projectTools = {
+        "Bloody Ruby": "Figma e Affinity",
+        "Cartazes musicais": "Figma",
+        "First Moon Blood": "Figma"
     };
 
     function getProjectDetails(item) {
@@ -375,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const projName = item.project;
-        const toolLabel = toolContext[item.subcategory] || item.subcategory || "N/A";
+        const toolLabel = projectTools[projName] || "N/A";
         const details = projectDetails[projName] || {
             objetivo: "Criar peças visuais e designs de alta qualidade explorando novos conceitos criativos.",
             problema: "Desenvolver soluções gráficas eficazes superando as restrições estéticas e funcionais de cada projeto.",
@@ -566,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ['problema', 'Desafio / Problema'],
                         ['processo', 'Processo Criativo'],
                         ['tipografia', 'Tipografia & Paleta'],
-                        ['ferramentas', 'Ferramentas & Técnicas'],
+                        ['ferramentas', 'Ferramentas'],
                         ['resultado', 'Resultado & Reflexão']
                     ];
 
