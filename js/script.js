@@ -6,7 +6,7 @@
     }
 })();
 
-// Portfólio de Sofia Monteiro - Projetos e Galeria
+
 const portfolioData = [
     {
         "id": 1,
@@ -388,14 +388,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Flat list of all items in display order — populated while building the grid
+    
     let allItems     = [];
     let currentIndex = 0;
 
     if (portfolioSections && typeof getPortfolioItems === 'function') {
         const items = getPortfolioItems();
 
-        // Group by category, subcategory, and project
+        
         const grouped = {};
         items.forEach(item => {
             const cat = item.category    || 'Outros';
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             polaroid.classList.add('polaroid--contain');
                         }
 
-                        // Detect very tall images and span 2 grid rows
+                        
                         img.addEventListener('load', () => {
                             const ratio = img.naturalHeight / img.naturalWidth;
                             if (ratio > 1.6 && item.project !== 'Identidade Visual - Bloody Ruby') {
@@ -505,14 +505,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         polaroid.appendChild(tape);
                         polaroid.appendChild(img);
 
-                        // Only show caption if it's not Photography and has a title
+
                         if (item.category !== 'Fotografia' && item.title) {
                             const caption = document.createElement('div');
                             caption.className   = 'polaroid-caption';
                             caption.textContent = item.title;
                             polaroid.appendChild(caption);
                         } else {
-                            // Add extra padding to the bottom to keep the polaroid shape
+                            
                             polaroid.style.paddingBottom = '20px';
                         }
 
@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        /* ── Core lightbox helpers ── */
+
 
         function openLightbox(index) {
             currentIndex = index;
@@ -549,11 +549,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (item.subcategory) categoryInfo += ' › ' + item.subcategory;
                 if (item.project && item.project !== 'Geral') categoryInfo += ' › ' + item.project;
 
-                // Tag classification for the current portfolio set
+                
                 const tagText = 'Projeto';
                 const tagClass = 'personal';
 
-                // Display structured content for non-Photography
+                
                 if (item.category !== 'Fotografia') {
                     const details = getProjectDetails(item);
                     const infoDefinitions = [
@@ -589,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="project-category"><small>${categoryInfo}</small></p>
                     `;
                 } else {
-                    // For Photography, keep it simple but add the tag
+
                     lightboxCaption.innerHTML = `
                         <div class="lightbox-header">
                             <div class="project-tags">
@@ -626,18 +626,18 @@ document.addEventListener('DOMContentLoaded', () => {
             updateLightboxContent();
         }
 
-        /* ── Event listeners ── */
+        
 
         if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
         if (lightboxPrev)  lightboxPrev.addEventListener('click',  (e) => { e.stopPropagation(); goPrev(); });
         if (lightboxNext)  lightboxNext.addEventListener('click',  (e) => { e.stopPropagation(); goNext(); });
 
-        // Click outside content to close
+        
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
 
-        // Keyboard navigation
+        
         document.addEventListener('keydown', (e) => {
             if (lightbox.style.display !== 'flex') return;
             if (e.key === 'Escape')      closeLightbox();
