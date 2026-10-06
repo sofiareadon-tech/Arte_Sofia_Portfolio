@@ -413,11 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return category.toLowerCase()
                 .normalize('NFD')
                 .replace(/[ -]/g, function(ch) {
-                    return ch.normalize('NFD').replace(/[ -]/g, '');
-                })
-                .replace(/[ -]/g, '')
-                .replace(/[ -]/g, '')
-                .replace(/[ -]/g, '')
+                    return ch;
+                 })
                 .replace(/[\u0300-\u036f]/g, '')
                 .replace(/\s+/g, '-')
                 .replace(/[^a-z0-9-]/g, '');
