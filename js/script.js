@@ -412,4 +412,5 @@ document.addEventListener('DOMContentLoaded', () => {
         function formatCategoryId(category) {
             return category.toLowerCase()
                 .normalize('NFD')
+<<<<<<< HEAD
                 .replace(/[
