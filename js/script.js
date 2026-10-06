@@ -146,11 +146,11 @@ function renderSharedLayout() {
         headerTarget.innerHTML = `
             <header>
                 <nav>
-                    <span class="logo">A Arte de Sofia</span>
+                    <a href="index.html" class="logo">A Arte de Sofia</a>
                     <ul class="nav-links">
                         <li><a href="index.html">Sobre Mim</a></li>
-                        <li><a href="portfolio.html">Portfólio</a></li>
                         <li><a href="services.html">Serviços</a></li>
+                        <li><a href="portfolio.html">Portfólio</a></li>
                         <li><a href="contact.html">Contactos</a></li>
                     </ul>
                     <div class="nav-actions">
@@ -192,15 +192,15 @@ function renderSharedLayout() {
             <footer class="site-footer">
                 <div class="footer-container">
                     <div class="footer-column branding">
-                        <span class="logo">A Arte de Sofia</span>
+                        <a href="index.html" class="logo">A Arte de Sofia</a>
                         <p>A criar experiências visuais únicas através do design, ilustração e fotografia.</p>
                     </div>
                     <div class="footer-column links">
                         <h4 class="footer-heading">Navegação</h4>
                         <ul>
                             <li><a href="index.html">Sobre Mim</a></li>
-                            <li><a href="portfolio.html">Portfólio</a></li>
                             <li><a href="services.html">Serviços</a></li>
+                            <li><a href="portfolio.html">Portfólio</a></li>
                             <li><a href="contact.html">Contactos</a></li>
                         </ul>
                     </div>
@@ -461,6 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (const proj in grouped[cat][sub]) {
                     if (proj !== 'Geral') {
                         const projHeader = document.createElement('h4');
+                        projHeader.id = formatCategoryId(proj);
                         projHeader.textContent = proj;
                         projHeader.className = 'project-header';
                         projHeader.style.marginTop = '0.8rem';
@@ -524,6 +525,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
+
+        function scrollToHashTarget() {
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 150);
+                }
+            }
+        }
+        scrollToHashTarget();
+        window.addEventListener('hashchange', scrollToHashTarget);
 
 
 
