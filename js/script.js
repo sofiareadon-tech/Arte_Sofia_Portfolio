@@ -526,19 +526,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        function scrollToHashTarget() {
-            if (window.location.hash) {
-                const targetId = window.location.hash.substring(1);
-                const targetElement = document.getElementById(targetId);
+        function handleNavigationTarget() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetKey = urlParams.get('project') || (window.location.hash ? window.location.hash.substring(1) : '');
+
+            if (!targetKey) return;
+
+            const normalizedTarget = formatCategoryId(targetKey);
+
+            // Verificar se corresponde a um projeto específico e abrir logo o primeiro popup
+            const projectIndex = allItems.findIndex(item => formatCategoryId(item.project) === normalizedTarget);
+
+            if (projectIndex !== -1) {
+                const targetElement = document.getElementById(normalizedTarget);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                setTimeout(() => {
+                    openLightbox(projectIndex);
+                }, 250);
+            } else {
+                // Caso seja uma categoria ou outro elemento com ID
+                const targetElement = document.getElementById(targetKey) || document.getElementById(normalizedTarget);
                 if (targetElement) {
                     setTimeout(() => {
                         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 150);
+                    }, 100);
                 }
             }
         }
-        scrollToHashTarget();
-        window.addEventListener('hashchange', scrollToHashTarget);
+
+        handleNavigationTarget();
+        window.addEventListener('hashchange', handleNavigationTarget);
 
 
 
