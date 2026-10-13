@@ -1,58 +1,57 @@
-# A Arte de Sofia - Portfólio
+# A Arte de Sofia — Portfólio
 
-Portfolio pessoal de design, ilustração e comunicação visual, desenvolvido como um site estático com uma estética de scrapbook digital.
+Portfólio pessoal de design, ilustração, fotografia e comunicação visual, apresentado num site estático com uma estética de scrapbook.
 
-## Visão geral
+## Páginas
 
-Este projeto apresenta o trabalho de Sofia em formato de portfólio online, com páginas dedicadas a:
+- `html/index.html` — apresentação e projetos em destaque
+- `html/portfolio.html` — galeria de projetos
+- `html/services.html` — serviços e ferramentas utilizadas
+- `html/contact.html` — contactos
 
-- apresentação inicial
-- galeria de projetos
-- serviços
-- contacto
+## Funcionalidades
 
-O site foi pensado para ser simples, visualmente marcante e responsivo, mantendo a identidade estética do projeto em diferentes dispositivos.
+- Layout responsivo para computador e dispositivos móveis
+- Tema claro/escuro, com preferência guardada no navegador
+- Navegação adaptada a ecrãs pequenos
+- Galeria agrupada por categoria, com imagens ampliáveis, navegação por setas e teclado
+- Abertura de projetos específicos através de ligações com hash ou parâmetro `project`
+- Playlist Spotify incorporada
+- Header e footer partilhados entre páginas
 
 ## Tecnologias
 
-- HTML
-- CSS
-- JavaScript vanilla
-- fontes locais
-- imagens e assets do projeto
+- HTML, CSS e JavaScript vanilla
+- Fontes locais
+- Imagens e recursos visuais locais
 
-## Estrutura principal
+## Estrutura do projeto
 
-- `html/` — páginas do website
-- `css/style.css` — estilos globais e visual do projeto
-- `js/script.js` — lógica da galeria, navegação, tema e interações
-- `images/` — todas as imagens do site (home, ícones de serviços, favicon e recursos visuais gerais)
-- `Porfólio/` — projetos e trabalhos apresentados
-- `fontes/` — tipografias locais
+- `html/` — páginas do site
+- `css/style.css` — estilos, layout responsivo e temas
+- `js/script.js` — layout partilhado, interações e galeria
+- `images/` — imagens da página inicial, ícones dos serviços, favicon e outros recursos visuais
+- `Porfólio/` — imagens dos projetos apresentados na galeria
+- `fontes/` — tipografias locais, incluindo Lora, Amoria, Loverine, Crimson Pro e Playfair Display
 
-## Como visualizar localmente
+As fontes Lora estão disponíveis nas versões normal e itálica.
 
-Pode abrir diretamente a página inicial em:
+## Visualizar localmente
 
-- `html/index.html`
+Para testar o site, sirva a pasta do projeto através de um servidor local. Com Python instalado, execute na raiz:
 
-Ou, se preferir servir o projeto localmente, pode correr no terminal:
-
-```bash
-cd "c:\Users\sm200\Downloads\Arte_Sofia_Portfolio"
+```powershell
 python -m http.server 8000
 ```
 
-Depois abre no browser:
+Depois, abra [http://localhost:8000/html/index.html](http://localhost:8000/html/index.html) no navegador.
 
-```text
-http://localhost:8000/html/index.html
-```
+Também é possível abrir `html/index.html` diretamente, mas um servidor local é recomendado para testar todas as funcionalidades e os caminhos dos recursos.
 
-## Objetivo do projeto
+## Objetivo
 
-Criar uma presença online para apresentar o portfólio de Sofia, destacando o trabalho visual, a identidade criativa e os serviços disponibilizados num formato moderno, elegante e funcional.
+Apresentar o trabalho, a identidade criativa e os serviços de Sofia num portfólio acessível, visualmente consistente e funcional em diferentes dispositivos.
 
 ## Estado
 
-Projeto em desenvolvimento e manutenção do portfolio digital.
+Projeto em desenvolvimento e manutenção.
