@@ -24,10 +24,6 @@
   font-style: italic;
 }
 @font-face {
-  font-family: 'Acros';
-  src: url('../fontes/Acros.ttf') format('truetype');
-}
-@font-face {
   font-family: 'Crimson Pro';
   src: url('../fontes/CrimsonPro-VariableFont_wght.ttf') format('truetype-variations');
   font-weight: 200 900;
@@ -486,7 +482,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Acros', serif;
+    font-family: 'Amoria', serif;
     color: var(--purple);
     margin-bottom: 0.5rem;
 }
