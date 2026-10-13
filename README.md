@@ -26,11 +26,9 @@ O site foi pensado para ser simples, visualmente marcante e responsivo, mantendo
 - `html/` — páginas do website
 - `css/style.css` — estilos globais e visual do projeto
 - `js/script.js` — lógica da galeria, navegação, tema e interações
-- `images/` — imagens gerais do site
-- `homepage/` — elementos da home
+- `images/` — todas as imagens do site (home, ícones de serviços, favicon e recursos visuais gerais)
 - `Porfólio/` — projetos e trabalhos apresentados
 - `fontes/` — tipografias locais
-- `serviços/` — ícones e recursos dos serviços
 
 ## Como visualizar localmente
 
