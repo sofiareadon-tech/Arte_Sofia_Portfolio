@@ -141,12 +141,14 @@ function renderSharedLayout() {
     const spotifyTarget = document.getElementById('site-spotify');
 
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const isContactPage = currentPage === 'contact.html' || currentPage === 'contact';
+    const logoMarkup = isContactPage ? '<span class="logo">A Arte de Sofia</span>' : '<a href="index.html" class="logo">A Arte de Sofia</a>';
 
     if (headerTarget) {
         headerTarget.innerHTML = `
             <header>
                 <nav>
-                    <a href="index.html" class="logo">A Arte de Sofia</a>
+                    ${logoMarkup}
                     <ul class="nav-links">
                         <li><a href="index.html">Sobre Mim</a></li>
                         <li><a href="services.html">Serviços</a></li>
@@ -192,7 +194,7 @@ function renderSharedLayout() {
             <footer class="site-footer">
                 <div class="footer-container">
                     <div class="footer-column branding">
-                        <a href="index.html" class="logo">A Arte de Sofia</a>
+                        ${logoMarkup}
                         <p>A criar experiências visuais únicas através do design, ilustração e fotografia.</p>
                     </div>
                     <div class="footer-column links">
