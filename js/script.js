@@ -1,646 +1,728 @@
+// tema guardado (modos)
 (function () {
-    var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (saved === 'dark' || (!saved && prefersDark)) {
+    var savedTheme = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         document.documentElement.classList.add('dark-mode');
     }
 })();
 
-const portfolioData = [
+// popups (portfólio)
+var portfolioData = [
     {
-        id: 1,
-        title: 'Banner principal V2',
+        title: 'Banner principal 2ª versão',
         description: 'Segunda variação do banner principal da Bloody Ruby, que explora a figura feminina poderosa em sintonia com o dramático e o vermelho.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Banner principal V2.jpg',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Bloody Ruby/Banner principal V2.jpg'
     },
     {
-        id: 2,
         title: 'Banner principal',
         description: 'Banner institucional da Bloody Ruby com estética romântica, dramáticaa e vermelho.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Banner principal.jpg',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Bloody Ruby/Banner principal.jpg'
     },
     {
-        id: 3,
         title: 'Bloody Ruby',
         description: 'Brandboard oficial da joalharia Bloody Ruby, incluindo a logomarca, a palete de cores e mockups da identidade visual em contextos associados.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'Bloody Ruby',
         imagePath: 'Porfólio/Bloody Ruby/Bloody Ruby.png',
-        date: '2026-05-29',
         specialStyle: 'contain'
     },
     {
-        id: 4,
-        title: 'Convite V2',
+        title: 'Convite 2ª versão',
         description: 'Segunda versão do convite de lançamento da nova coleção, com uma composição mais íntima e focada nas rosas vermelhas.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Convite V2.png',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Bloody Ruby/Convite V2.png'
     },
     {
-        id: 5,
         title: 'Convite',
         description: 'Convite de lançamento com estética de carta de amor, selo de cera vermelha e atmosfera romântica.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Convite.jpg',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Bloody Ruby/Convite.jpg'
     },
     {
-        id: 6,
         title: 'Icon',
         description: 'Monograma oficial da Bloody Ruby num ambiente de opulência.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Icon.jpg',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Bloody Ruby/Icon.jpg'
     },
     {
-        id: 7,
         title: 'A Rua',
         description: 'Cartaz da música A Rua, com tipografia em hierarquia, o olhar da protagonista e referências ao enredo.',
-        category: 'Design',
-        subcategory: 'Cartazes musicais',
         project: 'Cartazes musicais',
-        imagePath: 'Porfólio/Cartazes musicais/A Rua.jpg',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Cartazes musicais/A Rua.jpg'
     },
     {
-        id: 8,
         title: 'Combo da Sorte',
         description: 'Cartaz inspirado em Combo da Sorte, com estética delicada, verde e simbolismo de união romântica e superação.',
-        category: 'Design',
-        subcategory: 'Cartazes musicais',
         project: 'Cartazes musicais',
-        imagePath: 'Porfólio/Cartazes musicais/Combo da Sorte.png',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Cartazes musicais/Combo da Sorte.png'
     },
     {
-        id: 9,
         title: 'Morte',
         description: 'Cartaz de Morte com uma estética dramática, mística e intensa, inspirada no drama e no renascimento.',
-        category: 'Design',
-        subcategory: 'Cartazes musicais',
         project: 'Cartazes musicais',
-        imagePath: 'Porfólio/Cartazes musicais/Morte.jpg',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/Cartazes musicais/Morte.jpg'
     },
     {
-        id: 10,
         title: 'Banner Principal',
         description: 'Banner principal de First Moon Blood com atmosfera gótica, herege e uma identidade visual intensa.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'First Moon Blood',
-        imagePath: 'Porfólio/First Moon Blood/Banner Principal.png',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/First Moon Blood/Banner Principal.png'
     },
     {
-        id: 11,
         title: 'Banner Secundário',
         description: 'Banner secundário da identidade de First Moon Blood, com uma narrativa da trama da personagem e composição maisn ligada ao gótico.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'First Moon Blood',
-        imagePath: 'Porfólio/First Moon Blood/Banner Secundário.png',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/First Moon Blood/Banner Secundário.png'
     },
     {
-        id: 12,
         title: 'Icon',
         description: 'Icon de First Moon Blood com foco no mistério, no espelho e na aura vampírica da personagem.',
-        category: 'Design',
-        subcategory: 'Identidade Visual',
         project: 'First Moon Blood',
-        imagePath: 'Porfólio/First Moon Blood/Icon.png',
-        date: '2026-05-29'
+        imagePath: 'Porfólio/First Moon Blood/Icon.png'
     }
 ];
 
-function getPortfolioItems() {
-    return portfolioData;
-}
+// texto (popups)
+var projectDetails = {
+    'Bloody Ruby': {
+        Objetivo: 'Desenvolver uma identidade visual coesa e luxuosa para a joalharia fictícia, com foco em luxo, elegância e atemporalidade.',
+        'Desafio / Problema': 'Unir tradição, sofisticação e coerência visual sem cair no excesso de elementos ou ser minimalista.',
+        'Processo Criativo': 'Exploração da palete de cores através do moodboard, da tipografia e da composição para criar peças que funcionem em conjunto e reforcem a identidade da marca.',
+        Ferramentas: 'Figma e Affinity',
+        'Resultado & Reflexão': 'Uma linguagem visual forte, elegante e consistente que representa a marca.'
+    },
+    'Cartazes musicais': {
+        Objetivo: 'Criar cartazes com impacto visual e identidade própria para cada música e que transmitam uma narrativa.',
+        'Desafio / Problema': 'Traduzir a atmosfera de cada canção para uma composição visual clara e coerente.',
+        'Processo Criativo': 'Seleção de elementos visuais, tipografias e paletes de cor para refletir a sensibilidade de cada obra musical.',
+        Ferramentas: 'Figma',
+        'Resultado & Reflexão': 'Uma série de cartazes com identidade forte e coesa que contam cada um uma pequena história.'
+    },
+    'First Moon Blood': {
+        Objetivo: 'Construir uma identidade visual sombria, intensa e poderosa para a personagem e a sua narrativa.',
+        'Desafio / Problema': 'Equilibrar o mistério e a força para criar uma estética marcante.',
+        'Processo Criativo': 'Uso de contraste, simbolismo e composição para transmitir a personalidade da personagem.',
+        Ferramentas: 'Figma',
+        'Resultado & Reflexão': 'Uma linguagem visual envolvente, dramática e coerente com a identidade da personagem.'
+    }
+};
 
+// header, footer, spotify
 function renderSharedLayout() {
-    const headerTarget = document.getElementById('site-header');
-    const footerTarget = document.getElementById('site-footer');
-    const spotifyTarget = document.getElementById('site-spotify');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const isContactPage = currentPage === 'contact.html' || currentPage === 'contact';
-    const logoMarkup = isContactPage
+    var currentPage = window.location.pathname.split('/').pop();
+    var logo = currentPage === 'contact.html' || currentPage === 'contact'
         ? '<span class="logo">A Arte de Sofia</span>'
         : '<a href="index.html" class="logo">A Arte de Sofia</a>';
 
-    const navMarkup = `
-        <ul class="nav-links">
-            <li><a href="index.html">Sobre Mim</a></li>
-            <li><a href="services.html">Serviços</a></li>
-            <li><a href="portfolio.html">Portfólio</a></li>
-            <li><a href="contact.html">Contactos</a></li>
-        </ul>`;
-
-    if (headerTarget) {
-        headerTarget.innerHTML = `
-            <header>
-                <nav>
-                    ${logoMarkup}
-                    ${navMarkup}
-                    <div class="nav-actions">
-                        <label class="theme-switch" for="theme-toggle" aria-label="Alternar tema">
-                            <span class="theme-switch__icon">☀</span>
-                            <div class="theme-switch__track">
-                                <input type="checkbox" id="theme-toggle" class="theme-switch__input">
-                                <div class="theme-switch__thumb"></div>
-                            </div>
-                            <span class="theme-switch__icon">☾</span>
-                        </label>
-                        <div class="menu-toggle" id="mobile-menu">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        `;
-    }
-
-    if (spotifyTarget) {
-        spotifyTarget.innerHTML = `
-            <div id="spotify-btn" class="spotify-btn">Playlist</div>
-            <div id="spotify-panel" class="spotify-panel">
-                <iframe class="spotify-embed"
-                    src="https://open.spotify.com/embed/playlist/73BxUSHSjRcoliJeAZDlij?utm_source=generator"
-                    width="100%" height="380" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy">
-                </iframe>
-            </div>
-        `;
-    }
-
-    if (footerTarget) {
-        footerTarget.innerHTML = `
-            <footer class="site-footer">
-                <div class="footer-container">
-                    <div class="footer-column branding">
-                        ${logoMarkup}
-                        <p>A criar experiências visuais únicas através do design, ilustração e fotografia.</p>
-                    </div>
-                    <div class="footer-column links">
-                        <h4 class="footer-heading">Navegação</h4>
-                        <ul>
-                            <li><a href="index.html">Sobre Mim</a></li>
-                            <li><a href="services.html">Serviços</a></li>
-                            <li><a href="portfolio.html">Portfólio</a></li>
-                            <li><a href="contact.html">Contactos</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column contact">
-                        <h4 class="footer-heading">Fala Comigo</h4>
-                        <p><a href="mailto:sofiamonteiro.9@gmail.com">sofiamonteiro.9@gmail.com</a></p>
-                        <p><a href="tel:+351934389802">934 389 802</a></p>
-                        <div class="social-links">
-                            <a href="https://instagram.com/soh_wish" target="_blank" title="Instagram">Instagram</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>Sofia Silva 2026</p>
-                </div>
-            </footer>
-        `;
-    }
+    renderHeader(logo);
+    renderSpotify();
+    renderFooter(logo);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderSharedLayout();
+function renderHeader(logo) {
+    var target = document.getElementById('site-header');
+    if (!target) {
+        return;
+    }
 
-    const root = document.documentElement;
-    const themeToggleInput = document.getElementById('theme-toggle');
-    const navLinksContainer = document.querySelector('.nav-links');
-    const navActions = document.querySelector('.nav-actions');
-    const menuToggle = document.getElementById('mobile-menu');
-    const themeSwitchLabel = document.querySelector('.theme-switch');
-    const spotifyBtn = document.getElementById('spotify-btn');
-    const spotifyPanel = document.getElementById('spotify-panel');
-    const portfolioSections = document.getElementById('portfolio-sections');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxCounter = document.getElementById('lightbox-counter');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const lightboxPrev = document.getElementById('lightbox-prev');
-    const lightboxNext = document.getElementById('lightbox-next');
+    target.innerHTML = `
+        <header>
+            <nav aria-label="Navegação principal">
+                ${logo}
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Sobre Mim</a></li>
+                    <li><a href="services.html">Serviços</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="contact.html">Contactos</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <label class="theme-switch">
+                        <span class="theme-switch__icon">☀</span>
+                        <input type="checkbox" id="theme-toggle" class="theme-switch__input" aria-label="Alternar tema">
+                        <span class="theme-switch__track"></span>
+                        <span class="theme-switch__icon">☾</span>
+                    </label>
+                    <button type="button" class="menu-toggle" id="mobile-menu" aria-controls="nav-links" aria-label="Abrir menu" aria-expanded="false">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </nav>
+        </header>`;
+}
 
-    function setTheme(isDark) {
-        root.classList.toggle('dark-mode', isDark);
+function renderSpotify() {
+    var target = document.getElementById('site-spotify');
+    if (!target) {
+        return;
+    }
+
+    target.innerHTML = `
+        <button type="button" id="spotify-btn" class="spotify-btn" aria-controls="spotify-panel" aria-expanded="false">Playlist</button>
+        <div id="spotify-panel" class="spotify-panel" role="region" aria-label="Playlist do Spotify" aria-hidden="true">
+            <div id="spotify-embed" class="spotify-embed"></div>
+        </div>`;
+
+    window.onSpotifyIframeApiReady = function (iframeApi) {
+        var embed = document.getElementById('spotify-embed');
+        if (!embed) {
+            return;
+        }
+
+        iframeApi.createController(embed, {
+            uri: 'spotify:playlist:73BxUSHSjRcoliJeAZDlij',
+            width: embed.parentElement.clientWidth - 20,
+            height: 380
+        }, function () {});
+    };
+
+    var apiScript = document.createElement('script');
+    apiScript.src = 'https://open.spotify.com/embed/iframe-api/v1';
+    apiScript.async = true;
+    apiScript.onerror = function () {
+        console.error('Não foi possível carregar a API do Spotify.');
+    };
+    document.body.appendChild(apiScript);
+}
+
+function renderFooter(logo) {
+    var target = document.getElementById('site-footer');
+    if (!target) {
+        return;
+    }
+
+    target.innerHTML = `
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-column branding">
+                    ${logo}
+                    <p>Uma mente com uma infinitude de mundos a serem criados.</p>
+                </div>
+                <nav class="footer-column links" aria-label="Navegação no rodapé">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Sobre Mim</a></li>
+                        <li><a href="services.html">Serviços</a></li>
+                        <li><a href="portfolio.html">Portfólio</a></li>
+                        <li><a href="contact.html">Contactos</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-column contact">
+                    <h4 class="footer-heading">Contactos</h4>
+                    <div class="footer-contact-links">
+                        <a href="mailto:sofiamonteiro.9@gmail.com">E-mail</a>
+                        <a href="tel:+351934389802">Telemóvel</a>
+                        <a href="https://instagram.com/soh_wish" target="_blank" rel="noopener noreferrer" title="Instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Sofia Silva 2026</p>
+            </div>
+        </footer>
+        <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>`;
+}
+
+// modos
+function setupThemeSwitch() {
+    var themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) {
+        return;
+    }
+
+    var savedTheme = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+
+    themeToggle.checked = isDark;
+    themeToggle.addEventListener('change', function () {
+        isDark = themeToggle.checked;
+        document.documentElement.classList.toggle('dark-mode', isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        if (themeToggleInput) {
-            themeToggleInput.checked = isDark;
+    });
+}
+
+// menu responsivo
+function setupMobileMenu() {
+    var menuButton = document.getElementById('mobile-menu');
+    var links = document.getElementById('nav-links');
+    var actions = document.querySelector('.nav-actions');
+    var themeSwitch = document.querySelector('.theme-switch');
+
+    if (!menuButton || !links) {
+        return;
+    }
+
+    function setMenuOpen(isOpen) {
+        links.classList.toggle('active', isOpen);
+        links.setAttribute('aria-hidden', String(!isOpen && window.innerWidth <= 768));
+        menuButton.classList.toggle('is-active', isOpen);
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        document.body.classList.toggle('menu-open', isOpen);
+    }
+
+    function moveThemeSwitch() {
+        var wrapper = document.getElementById('theme-switch-mobile-wrapper');
+
+        if (window.innerWidth <= 768 && !wrapper && themeSwitch) {
+            wrapper = document.createElement('li');
+            wrapper.id = 'theme-switch-mobile-wrapper';
+            wrapper.style.cssText = 'list-style: none; margin-top: 1rem;';
+            wrapper.appendChild(themeSwitch);
+            links.appendChild(wrapper);
+        } else if (window.innerWidth > 768 && wrapper) {
+            actions.insertBefore(themeSwitch, menuButton);
+            wrapper.remove();
         }
     }
 
-    if (themeToggleInput) {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(savedTheme ? savedTheme === 'dark' : prefersDark);
-        themeToggleInput.addEventListener('change', () => setTheme(themeToggleInput.checked));
-    }
+    setMenuOpen(false);
+    moveThemeSwitch();
 
-    if (menuToggle && navLinksContainer) {
-        menuToggle.addEventListener('click', () => {
-            navLinksContainer.classList.toggle('active');
-            menuToggle.classList.toggle('is-active');
-        });
+    menuButton.addEventListener('click', function () {
+        setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+    });
 
-        navLinksContainer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinksContainer.classList.remove('active');
-                menuToggle.classList.remove('is-active');
-            });
-        });
-    }
-
-    if (themeSwitchLabel && navActions && navLinksContainer) {
-        const moveThemeToggleToMobileMenu = () => {
-            const wrapper = document.getElementById('theme-switch-mobile-wrapper');
-
-            if (window.innerWidth <= 768) {
-                if (!wrapper) {
-                    const item = document.createElement('li');
-                    item.id = 'theme-switch-mobile-wrapper';
-                    item.style.listStyle = 'none';
-                    item.style.marginTop = '1rem';
-                    item.appendChild(themeSwitchLabel);
-                    navLinksContainer.appendChild(item);
-                }
-            } else if (wrapper) {
-                navActions.insertBefore(themeSwitchLabel, menuToggle);
-                wrapper.remove();
-            }
-        };
-
-        window.addEventListener('resize', moveThemeToggleToMobileMenu);
-        moveThemeToggleToMobileMenu();
-    }
-
-    if (spotifyBtn && spotifyPanel) {
-        spotifyBtn.addEventListener('click', () => {
-            spotifyPanel.classList.toggle('open');
-            const isOpen = spotifyPanel.classList.contains('open');
-            spotifyBtn.innerHTML = isOpen ? '✕ Fechar' : 'Playlist';
-            spotifyBtn.style.right = isOpen ? '320px' : '0';
-        });
-    }
-
-    const currentPage = window.location.pathname.split('/').pop();
-    document.querySelectorAll('.nav-links a').forEach(anchor => {
-        const href = anchor.getAttribute('href');
-        const isHomePage = href === 'index.html' && (currentPage === '' || currentPage === 'index.html');
-        if (href === currentPage || isHomePage) {
-            anchor.classList.add('active');
+    links.addEventListener('click', function (event) {
+        if (event.target.closest('a')) {
+            setMenuOpen(false);
         }
     });
 
-    function encodeImagePath(rawPath) {
-        const [pathPart, queryString] = rawPath.split('?');
-        const encodedPath = pathPart.split('/').map(segment => encodeURIComponent(segment)).join('/');
-        return queryString ? `${encodedPath}?${queryString}` : encodedPath;
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            setMenuOpen(false);
+        }
+        moveThemeSwitch();
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            setMenuOpen(false);
+        }
+    });
+}
+
+// painel spotify
+function setupSpotifyMenu() {
+    var button = document.getElementById('spotify-btn');
+    var panel = document.getElementById('spotify-panel');
+    if (!button || !panel) {
+        return;
     }
 
-    const projectDetails = {
-        'Bloody Ruby': {
-            objetivo: 'Desenvolver uma identidade visual coesa e luxuosa para a joalharia fictícia, com foco em luxo, elegância e atemporalidade.',
-            problema: 'Unir tradição, sofisticação e coerência visual sem cair no excesso de elementos ou ser minimalista.',
-            processo: 'Exploração da palete de cores através do moodboard, da tipografia e da composição para criar peças que funcionem em conjunto e reforcem a identidade da marca.',
-            resultado: 'Uma linguagem visual forte, elegante e consistente que representa a marca.'
-        },
-        'Cartazes musicais': {
-            objetivo: 'Criar cartazes com impacto visual e identidade própria para cada música e que transmitam uma narrativa.',
-            problema: 'Traduzir a atmosfera de cada canção para uma composição visual clara e coerente.',
-            processo: 'Seleção de elementos visuais, tipografias e paletes de cor para refletir a sensibilidade de cada obra musical.',
-            resultado: 'Uma série de cartazes com identidade forte e coesa que contam cada um uma pequena história.'
-        },
-        'First Moon Blood': {
-            objetivo: 'Construir uma identidade visual sombria, intensa e poderosa para a personagem e a sua narrativa.',
-            problema: 'Equilibrar o mistério e a força para criar uma estética marcante.',
-            processo: 'Uso de contraste, simbolismo e composição para transmitir a personalidade da personagem.',
-            resultado: 'Uma linguagem visual envolvente, dramática e coerente com a identidade da personagem.'
+    function setOpen(isOpen) {
+        panel.classList.toggle('open', isOpen);
+        panel.setAttribute('aria-hidden', String(!isOpen));
+        button.classList.toggle('open', isOpen);
+        button.setAttribute('aria-expanded', String(isOpen));
+        button.textContent = isOpen ? '✕ Fechar' : 'Playlist';
+    }
+
+    button.addEventListener('click', function () {
+        setOpen(!panel.classList.contains('open'));
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            setOpen(false);
         }
-    };
+    });
+}
 
-    const projectTools = {
-        'Bloody Ruby': 'Figma e Affinity',
-        'Cartazes musicais': 'Figma',
-        'First Moon Blood': 'Figma'
-    };
+// botão subir pag
+function setupBackToTop() {
+    var button = document.getElementById('back-to-top');
+    if (!button) {
+        return;
+    }
 
-    function getProjectDetails(item) {
-        if (!item || !item.project) {
-            return null;
+    function updateButton() {
+        button.classList.toggle('visible', window.scrollY > 300);
+    }
+
+    window.addEventListener('scroll', updateButton, { passive: true });
+    updateButton();
+
+    button.addEventListener('click', function () {
+        window.scrollTo(0, 0);
+    });
+}
+
+// seletor menu pag atual
+function setActivePage() {
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-links a');
+
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('href') === currentPage) {
+            links[i].classList.add('active');
+            links[i].setAttribute('aria-current', 'page');
+        }
+    }
+}
+
+// imagens
+function encodeImagePath(path) {
+    return path.split('/').map(encodeURIComponent).join('/');
+}
+
+function formatCategoryId(value) {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
+// lightbox (portfólio)
+function setupPortfolio() {
+    var sections = document.getElementById('portfolio-sections');
+    if (!sections) {
+        return;
+    }
+
+    var lightbox = document.getElementById('lightbox');
+    var image = document.getElementById('lightbox-img');
+    var caption = document.getElementById('lightbox-caption');
+    var counter = document.getElementById('lightbox-counter');
+    var closeButton = document.querySelector('.lightbox-close');
+    var previousButton = document.getElementById('lightbox-prev');
+    var nextButton = document.getElementById('lightbox-next');
+    var allItems = [];
+    var projectGrids = [];
+    var currentIndex = 0;
+    var returnFocus = null;
+    var updateTimer;
+    var closeTimer;
+
+    if (!lightbox || !image || !caption || !closeButton) {
+        return;
+    }
+
+    function arrangeGrid(projectGrid) {
+        var columnCount = window.innerWidth <= 900 ? 2 : 3;
+        if (projectGrid.columnCount === columnCount) {
+            return;
         }
 
-        const projectName = item.project;
-        const fallbackDetails = {
-            objetivo: 'Criar peças visuais e designs de alta qualidade explorando novos conceitos criativos.',
-            problema: 'Desenvolver soluções gráficas eficazes superando as restrições estéticas e funcionais de cada projeto.',
-            processo: 'Pesquisa, ideação e refinamento técnico utilizando softwares e metodologias específicas.',
-            resultado: 'Trabalhos visuais finalizados e apelativos para exibição.'
+        projectGrid.columnCount = columnCount;
+        projectGrid.element.textContent = '';
+
+        var columns = [];
+        for (var i = 0; i < columnCount; i++) {
+            var column = document.createElement('div');
+            column.className = 'gallery-column';
+            columns.push(column);
+            projectGrid.element.appendChild(column);
+        }
+
+        var centeredCards = [];
+        var columnIndex = 0;
+        for (var j = 0; j < projectGrid.cards.length; j++) {
+            var card = projectGrid.cards[j];
+            var centerOnMobile = card.classList.contains('polaroid--centered-mobile');
+            var centerOnDesktop = card.classList.contains('polaroid--centered');
+            var shouldCenter = columnCount === 2 ? centerOnMobile : centerOnDesktop;
+
+            if (shouldCenter) {
+                centeredCards.push(card);
+            } else {
+                columns[columnIndex % columnCount].appendChild(card);
+                columnIndex++;
+            }
+        }
+
+        if (centeredCards.length) {
+            var centeredRow = document.createElement('div');
+            centeredRow.className = 'gallery-centered-row';
+            for (var k = 0; k < centeredCards.length; k++) {
+                centeredRow.appendChild(centeredCards[k]);
+            }
+            projectGrid.element.appendChild(centeredRow);
+        }
+    }
+
+    function createCard(item) {
+        var index = allItems.push(item) - 1;
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'polaroid';
+        if (item.project === 'Bloody Ruby' && item.title === 'Icon') {
+            card.classList.add('polaroid--centered');
+        }
+        if ((item.project === 'First Moon Blood' && item.title === 'Icon') ||
+            (item.project === 'Cartazes musicais' && item.title === 'Morte')) {
+            card.classList.add('polaroid--centered-mobile');
+        }
+        card.setAttribute('aria-label', 'Ver detalhes de ' + item.title);
+
+        var tape = document.createElement('div');
+        tape.className = 'tape';
+        tape.setAttribute('aria-hidden', 'true');
+        card.appendChild(tape);
+
+        var cardImage = document.createElement('img');
+        cardImage.src = encodeImagePath('../' + item.imagePath);
+        cardImage.alt = item.title;
+        cardImage.loading = 'lazy';
+
+        if (item.specialStyle === 'contain') {
+            card.classList.add('polaroid--contain');
+        }
+
+        card.appendChild(cardImage);
+
+        var title = document.createElement('div');
+        title.className = 'polaroid-caption';
+        title.textContent = item.title;
+        card.appendChild(title);
+
+        card.addEventListener('click', function () {
+            openLightbox(index);
+        });
+        return card;
+    }
+
+    function showProject(projectName, items) {
+        var heading = document.createElement('h2');
+        heading.id = formatCategoryId(projectName);
+        heading.className = 'project-header';
+        heading.textContent = projectName;
+        sections.appendChild(heading);
+
+        var grid = document.createElement('section');
+        grid.className = 'gallery-grid';
+        grid.setAttribute('aria-label', 'Galeria de ' + projectName);
+
+        var cards = [];
+        for (var i = 0; i < items.length; i++) {
+            cards.push(createCard(items[i]));
+        }
+
+        sections.appendChild(grid);
+        var projectGrid = {
+            element: grid,
+            cards: cards,
+            columnCount: 0
         };
-        const details = projectDetails[projectName] || fallbackDetails;
-
-        return {
-            objetivo: details.objetivo,
-            problema: details.problema,
-            processo: details.processo,
-            ferramentas: projectTools[projectName] || 'N/A',
-            resultado: details.resultado
-        };
+        projectGrids.push(projectGrid);
+        arrangeGrid(projectGrid);
     }
 
-    function formatCategoryId(value) {
-        return String(value || '')
-            .trim()
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
+    function groupProjects() {
+        var projects = {};
+
+        for (var i = 0; i < portfolioData.length; i++) {
+            var item = portfolioData[i];
+            var projectName = item.project;
+            if (!projects[projectName]) {
+                projects[projectName] = [];
+            }
+            projects[projectName].push(item);
+        }
+
+        var names = Object.keys(projects);
+        names.sort(function (a, b) {
+            return (a === 'Cartazes musicais') - (b === 'Cartazes musicais');
+        });
+
+        for (var j = 0; j < names.length; j++) {
+            showProject(names[j], projects[names[j]]);
+        }
     }
 
-    if (portfolioSections && typeof getPortfolioItems === 'function') {
-        const items = getPortfolioItems();
-        let allItems = [];
-        let currentIndex = 0;
+    function renderDetails(item) {
+        var details = projectDetails[item.project];
+        var html = '';
 
-        const grouped = {};
-        items.forEach(item => {
-            const category = item.category || 'Outros';
-            const subcategory = item.subcategory || 'Geral';
-            const project = item.project || 'Geral';
-
-            if (!grouped[category]) grouped[category] = {};
-            if (!grouped[category][subcategory]) grouped[category][subcategory] = {};
-            if (!grouped[category][subcategory][project]) grouped[category][subcategory][project] = [];
-
-            grouped[category][subcategory][project].push(item);
-        });
-
-        const categoryOrder = ['Design', 'Ilustração', 'Fotografia'];
-        const sortedCategories = Object.keys(grouped).sort((a, b) => {
-            const indexA = categoryOrder.indexOf(a);
-            const indexB = categoryOrder.indexOf(b);
-            return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-        });
-
-        sortedCategories.forEach(category => {
-            if (category !== 'Design') {
-                const categoryHeader = document.createElement('h2');
-                categoryHeader.id = formatCategoryId(category);
-                categoryHeader.textContent = category;
-                categoryHeader.className = 'category-header';
-                categoryHeader.style.marginTop = '1.5rem';
-                categoryHeader.style.borderBottom = '2px dashed var(--light-blue)';
-                categoryHeader.style.paddingBottom = '0.25rem';
-                categoryHeader.style.color = 'var(--light-blue)';
-                categoryHeader.style.textShadow = 'none';
-                portfolioSections.appendChild(categoryHeader);
-            }
-
-            Object.entries(grouped[category]).forEach(([subcategory, projects]) => {
-                const hideSubHeader = subcategory === 'Identidade Visual' || subcategory === 'Cartazes musicais';
-                const shouldRenderSubHeader = !hideSubHeader && (subcategory !== 'Geral' || Object.keys(grouped[category]).length > 1);
-
-                if (shouldRenderSubHeader) {
-                    const subHeader = document.createElement('h3');
-                    subHeader.textContent = subcategory;
-                    subHeader.className = 'subcategory-header';
-                    subHeader.style.marginTop = '1rem';
-                    subHeader.style.color = 'var(--text-dark)';
-                    portfolioSections.appendChild(subHeader);
-                }
-
-                Object.entries(projects).forEach(([project, projectItems]) => {
-                    if (project !== 'Geral') {
-                        const projectHeader = document.createElement('h4');
-                        projectHeader.id = formatCategoryId(project);
-                        projectHeader.textContent = project;
-                        projectHeader.className = 'project-header';
-                        projectHeader.style.marginTop = '0.8rem';
-                        projectHeader.style.marginBottom = '0.5rem';
-                        projectHeader.style.fontFamily = 'Amoria, serif';
-                        projectHeader.style.setProperty('font-family', "'Amoria', serif", 'important');
-                        portfolioSections.appendChild(projectHeader);
-                    }
-
-                    const grid = document.createElement('section');
-                    grid.className = 'gallery-grid';
-
-                    projectItems.forEach(item => {
-                        const itemIndex = allItems.length;
-                        allItems.push(item);
-
-                        const polaroid = document.createElement('div');
-                        polaroid.className = 'polaroid';
-                        polaroid.style.cursor = 'pointer';
-
-                        const img = document.createElement('img');
-                        img.src = encodeImagePath('../' + item.imagePath);
-                        img.alt = item.title || 'Portfolio Image';
-                        img.loading = 'lazy';
-
-                        if (item.specialStyle === 'contain') {
-                            img.classList.add('img-contain');
-                            polaroid.classList.add('polaroid--contain');
-                        }
-
-                        img.addEventListener('load', () => {
-                            const ratio = img.naturalHeight / img.naturalWidth;
-                            if (ratio > 1.6 && item.project !== 'Identidade Visual - Bloody Ruby') {
-                                polaroid.classList.add('polaroid--tall');
-                            }
-                        });
-
-                        const tape = document.createElement('div');
-                        tape.className = 'tape';
-
-                        polaroid.appendChild(tape);
-                        polaroid.appendChild(img);
-
-                        if (item.category !== 'Fotografia' && item.title) {
-                            const caption = document.createElement('div');
-                            caption.className = 'polaroid-caption';
-                            caption.textContent = item.title;
-                            polaroid.appendChild(caption);
-                        } else {
-                            polaroid.style.paddingBottom = '20px';
-                        }
-
-                        polaroid.addEventListener('click', () => openLightbox(itemIndex));
-                        grid.appendChild(polaroid);
-                    });
-
-                    portfolioSections.appendChild(grid);
-                });
-            });
-        });
-
-        function handleNavigationTarget() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const targetKey = urlParams.get('project') || (window.location.hash ? window.location.hash.substring(1) : '');
-
-            if (!targetKey) return;
-
-            const normalizedTarget = formatCategoryId(targetKey);
-            const projectIndex = allItems.findIndex(item => formatCategoryId(item.project) === normalizedTarget);
-
-            if (projectIndex !== -1) {
-                const targetElement = document.getElementById(normalizedTarget);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                setTimeout(() => openLightbox(projectIndex), 250);
-                return;
-            }
-
-            const targetElement = document.getElementById(targetKey) || document.getElementById(normalizedTarget);
-            if (targetElement) {
-                setTimeout(() => {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
+        for (var label in details) {
+            html += `
+                <details class="info-block">
+                    <summary>${label}</summary>
+                    <span>${details[label]}</span>
+                </details>`;
         }
-
-        function openLightbox(index) {
-            currentIndex = index;
-            updateLightboxContent();
-            lightbox.style.display = 'flex';
-            void lightbox.offsetWidth;
-            lightbox.classList.add('show');
-        }
-
-        function updateLightboxContent() {
-            const item = allItems[currentIndex];
-            if (!item) return;
-
-            lightboxImg.style.opacity = '0';
-            lightboxImg.style.transform = 'scale(0.96)';
-
-            setTimeout(() => {
-                lightboxImg.src = encodeImagePath('../' + item.imagePath);
-                lightboxImg.alt = item.title || 'Portfolio Image';
-
-                let categoryInfo = item.category;
-                if (item.subcategory) categoryInfo += ' › ' + item.subcategory;
-                if (item.project && item.project !== 'Geral') categoryInfo += ' › ' + item.project;
-
-                const tagText = 'Projeto';
-                const tagClass = 'personal';
-
-                if (item.category !== 'Fotografia') {
-                    const details = getProjectDetails(item);
-                    const infoDefinitions = [
-                        ['sobre', 'Sobre a Peça'],
-                        ['objetivo', 'Objetivo'],
-                        ['problema', 'Desafio / Problema'],
-                        ['processo', 'Processo Criativo'],
-                        ['tipografia', 'Tipografia & Paleta'],
-                        ['ferramentas', 'Ferramentas'],
-                        ['resultado', 'Resultado & Reflexão']
-                    ];
-
-                    const gridHtml = infoDefinitions
-                        .filter(([key]) => details && details[key])
-                        .map(([key, label]) => `
-                            <div class="info-block">
-                                <strong>${label}</strong>
-                                <span>${details[key]}</span>
-                            </div>`)
-                        .join('');
-
-                    lightboxCaption.innerHTML = `
-                        <div class="lightbox-header">
-                            ${item.title ? `<h3>${item.title}</h3>` : ''}
-                            <div class="project-tags">
-                                <span class="project-tag ${tagClass}">${tagText}</span>
-                            </div>
-                        </div>
-                        ${item.description ? `<p class="lightbox-item-desc">${item.description}</p>` : ''}
-                        <div class="project-info-grid">
-                            ${gridHtml}
-                        </div>
-                        <p class="project-category"><small>${categoryInfo}</small></p>
-                    `;
-                } else {
-                    lightboxCaption.innerHTML = `
-                        <div class="lightbox-header">
-                            <div class="project-tags">
-                                <span class="project-tag ${tagClass}">${tagText}</span>
-                            </div>
-                        </div>
-                        <p class="project-category"><small>${categoryInfo}</small></p>
-                    `;
-                }
-
-                if (lightboxCounter) {
-                    lightboxCounter.textContent = `${currentIndex + 1} / ${allItems.length}`;
-                }
-
-                lightboxImg.style.opacity = '1';
-                lightboxImg.style.transform = 'scale(1)';
-            }, 180);
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('show');
-            setTimeout(() => {
-                lightbox.style.display = 'none';
-                lightboxImg.src = '';
-            }, 300);
-        }
-
-        function goPrev() {
-            currentIndex = (currentIndex - 1 + allItems.length) % allItems.length;
-            updateLightboxContent();
-        }
-
-        function goNext() {
-            currentIndex = (currentIndex + 1) % allItems.length;
-            updateLightboxContent();
-        }
-
-        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-        if (lightboxPrev) lightboxPrev.addEventListener('click', e => { e.stopPropagation(); goPrev(); });
-        if (lightboxNext) lightboxNext.addEventListener('click', e => { e.stopPropagation(); goNext(); });
-
-        lightbox.addEventListener('click', event => {
-            if (event.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener('keydown', event => {
-            if (lightbox.style.display !== 'flex') return;
-            if (event.key === 'Escape') closeLightbox();
-            if (event.key === 'ArrowLeft') goPrev();
-            if (event.key === 'ArrowRight') goNext();
-        });
-
-        handleNavigationTarget();
-        window.addEventListener('hashchange', handleNavigationTarget);
+        return html;
     }
+
+    function updateLightbox() {
+        var item = allItems[currentIndex];
+        image.style.opacity = '0';
+        image.style.transform = 'scale(0.96)';
+
+        window.clearTimeout(updateTimer);
+        updateTimer = window.setTimeout(function () {
+            image.src = encodeImagePath('../' + item.imagePath);
+            image.alt = item.title;
+            caption.innerHTML = `
+                <div class="lightbox-header">
+                    <h3 id="lightbox-title">${item.title}</h3>
+                </div>
+                <p class="lightbox-item-desc">${item.description}</p>
+                <div class="project-info-grid">${renderDetails(item)}</div>
+                <p class="project-category"><small>${item.project}</small></p>`;
+
+            var tag = document.createElement('span');
+            tag.className = 'project-tag personal';
+            tag.textContent = 'Projeto';
+            caption.querySelector('.lightbox-header').appendChild(tag);
+
+            if (counter) {
+                counter.textContent = (currentIndex + 1) + ' / ' + allItems.length;
+            }
+
+            image.style.opacity = '1';
+            image.style.transform = 'scale(1)';
+        }, 180);
+    }
+
+    function openLightbox(index) {
+        window.clearTimeout(closeTimer);
+        returnFocus = document.activeElement;
+        currentIndex = index;
+        updateLightbox();
+        lightbox.setAttribute('aria-label', 'Detalhes de ' + allItems[index].title);
+        lightbox.setAttribute('aria-hidden', 'false');
+        lightbox.style.display = 'flex';
+        document.body.classList.add('lightbox-open');
+        void lightbox.offsetWidth;
+        lightbox.classList.add('show');
+        closeButton.focus();
+    }
+
+    function closeLightbox() {
+        window.clearTimeout(updateTimer);
+        lightbox.classList.remove('show');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-open');
+
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(function () {
+            lightbox.style.display = 'none';
+            image.src = '';
+            if (returnFocus && returnFocus.isConnected) {
+                returnFocus.focus();
+            }
+        }, 300);
+    }
+
+    function showAdjacentItem(direction) {
+        currentIndex = (currentIndex + direction + allItems.length) % allItems.length;
+        updateLightbox();
+    }
+
+    function openProjectFromAddress() {
+        var params = new URLSearchParams(window.location.search);
+        var target = params.get('project') || window.location.hash.substring(1);
+        if (!target) {
+            return;
+        }
+
+        var categoryId = formatCategoryId(target);
+        var itemIndex = allItems.findIndex(function (item) {
+            return formatCategoryId(item.project) === categoryId;
+        });
+
+        if (itemIndex !== -1) {
+            var heading = document.getElementById(categoryId);
+            if (heading) {
+                heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            window.setTimeout(function () {
+                openLightbox(itemIndex);
+            }, 250);
+            return;
+        }
+
+        var targetElement = document.getElementById(target) ||
+            document.getElementById(categoryId);
+        if (targetElement) {
+            window.setTimeout(function () {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
+
+    groupProjects();
+
+    window.addEventListener('resize', function () {
+        for (var i = 0; i < projectGrids.length; i++) {
+            arrangeGrid(projectGrids[i]);
+        }
+    });
+
+    closeButton.addEventListener('click', closeLightbox);
+    if (previousButton) {
+        previousButton.addEventListener('click', function (event) {
+            event.stopPropagation();
+            showAdjacentItem(-1);
+        });
+    }
+    if (nextButton) {
+        nextButton.addEventListener('click', function (event) {
+            event.stopPropagation();
+            showAdjacentItem(1);
+        });
+    }
+
+    lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (lightbox.style.display !== 'flex') {
+            return;
+        }
+
+        if (event.key === 'Escape') {
+            closeLightbox();
+        } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            showAdjacentItem(-1);
+        } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            showAdjacentItem(1);
+        } else if (event.key === 'Tab') {
+            var focusable = lightbox.querySelectorAll('button:not([disabled]), summary');
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            } else if (!lightbox.contains(document.activeElement)) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    openProjectFromAddress();
+    window.addEventListener('hashchange', openProjectFromAddress);
+}
+
+// iniciar
+document.addEventListener('DOMContentLoaded', function () {
+    renderSharedLayout();
+    setupThemeSwitch();
+    setupMobileMenu();
+    setupSpotifyMenu();
+    setupBackToTop();
+    setActivePage();
+    setupPortfolio();
 });

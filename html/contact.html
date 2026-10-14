@@ -7,7 +7,7 @@
     <meta name="description"
         content="Entre em contacto com a Sofia. Estou disponível para novos projetos, ideias criativas e colaborações na área de design.">
     <title>A Arte de Sofia | Contactos</title>
-    <link rel="stylesheet" href="../css/style.css?v=1.1">
+    <link rel="stylesheet" href="../css/style.css?v=2.8">
     <link rel="icon" type="image/png" href="../images/favicon.png">
 </head>
 
@@ -20,25 +20,36 @@
             <h1>Vamos falar?</h1>
             <p class="contact-intro">Tem uma ideia que quer concretizar? Precisa de um olhar criativo para um novo projeto? Preencha o formulário abaixo e entrarei em contacto o mais breve possível!</p>
 
-            <div class="contact-info contact-panel">
+            <div class="contact-panel">
                 <p><strong>E-mail:</strong> <a href="mailto:sofiamonteiro.9@gmail.com">sofiamonteiro.9@gmail.com</a></p>
                 <p><strong>Telemóvel:</strong> <a href="tel:+351934389802">(+351) 934 389 802</a></p>
-                <p><strong>Instagram:</strong> <a href="https://instagram.com/soh_wish" target="_blank">@soh_wish</a></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/soh_wish" target="_blank" rel="noopener noreferrer">@soh_wish</a></p>
             </div>
 
-            <form id="contact-form" action="mailto:sofiamonteiro.9@gmail.com" method="POST" enctype="text/plain">
-                <input type="text" name="name" placeholder="O teu Nome" required>
-                <input type="email" name="email" placeholder="O teu Email" required>
-                <input type="text" name="subject" placeholder="Assunto" required>
-                <textarea name="message" rows="5" placeholder="A tua Mensagem" required></textarea>
+            <form id="contact-form" action="mailto:sofiamonteiro.9@gmail.com" method="POST" enctype="text/plain" aria-label="Formulário de contacto">
+                <div class="form-field">
+                    <label for="contact-name">Nome</label>
+                    <input id="contact-name" type="text" name="name" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact-subject">Assunto</label>
+                    <input id="contact-subject" type="text" name="subject" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact-message">Mensagem</label>
+                    <textarea id="contact-message" name="message" rows="5" required></textarea>
+                </div>
                 <button type="submit">Enviar Mensagem</button>
             </form>
         </div>
     </main>
 
     <div id="site-footer"></div>
-    <script src="../js/script.js"></script>
+    <script src="../js/script.js?v=1.14"></script>
 </body>
 
 </html>
-

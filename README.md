@@ -36,6 +36,14 @@ Portfólio pessoal de design, ilustração, fotografia e comunicação visual, a
 
 As fontes Lora estão disponíveis nas versões normal e itálica.
 
+## Organização do código
+
+- No início de `js/script.js` estão os dados dos projetos e os textos apresentados na lightbox.
+- As funções `renderHeader`, `renderSpotify` e `renderFooter` criam as partes partilhadas das páginas.
+- As funções `setup...` ligam os controlos do tema, do menu, da playlist, do botão de topo e da galeria.
+- Em `css/style.css`, as regras estão agrupadas por elementos comuns, páginas, lightbox, rodapé e tamanhos de ecrã.
+- Cada página em `html/` contém o seu conteúdo; o cabeçalho e o rodapé são partilhados pelo JavaScript.
+
 ## Visualizar localmente
 
 Para testar o site, sirva a pasta do projeto através de um servidor local. Com Python instalado, execute na raiz:
