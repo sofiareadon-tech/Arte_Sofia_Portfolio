@@ -1,14 +1,3 @@
-// tema guardado (modos)
-(function () {
-    var savedTheme = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.classList.add('dark-mode');
-    }
-})();
-
 // popups (portfólio)
 var portfolioData = [
     {
@@ -111,180 +100,28 @@ var projectDetails = {
     }
 };
 
-// header, footer, spotify
-function renderSharedLayout() {
-    var currentPage = window.location.pathname.split('/').pop();
-    var logo = currentPage === 'contact.html' || currentPage === 'contact'
-        ? '<span class="logo">A Arte de Sofia</span>'
-        : '<a href="index.html" class="logo">A Arte de Sofia</a>';
-
-    renderHeader(logo);
-    renderSpotify();
-    renderFooter(logo);
-}
-
-function renderHeader(logo) {
-    var target = document.getElementById('site-header');
-    if (!target) {
-        return;
-    }
-
-    target.innerHTML = `
-        <header>
-            <nav aria-label="Navegação principal">
-                ${logo}
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Sobre Mim</a></li>
-                    <li><a href="services.html">Serviços</a></li>
-                    <li><a href="portfolio.html">Portfólio</a></li>
-                    <li><a href="contact.html">Contactos</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <label class="theme-switch">
-                        <span class="theme-switch__icon">☀</span>
-                        <input type="checkbox" id="theme-toggle" class="theme-switch__input" aria-label="Alternar tema">
-                        <span class="theme-switch__track"></span>
-                        <span class="theme-switch__icon">☾</span>
-                    </label>
-                    <button type="button" class="menu-toggle" id="mobile-menu" aria-controls="nav-links" aria-label="Abrir menu" aria-expanded="false">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </button>
-                </div>
-            </nav>
-        </header>`;
-}
-
-function renderSpotify() {
-    var target = document.getElementById('site-spotify');
-    if (!target) {
-        return;
-    }
-
-    target.innerHTML = `
-        <button type="button" id="spotify-btn" class="spotify-btn" aria-controls="spotify-panel" aria-expanded="false">Playlist</button>
-        <div id="spotify-panel" class="spotify-panel" role="region" aria-label="Playlist do Spotify" aria-hidden="true">
-            <div id="spotify-embed" class="spotify-embed"></div>
-        </div>`;
-
-    window.onSpotifyIframeApiReady = function (iframeApi) {
-        var embed = document.getElementById('spotify-embed');
-        if (!embed) {
-            return;
-        }
-
-        iframeApi.createController(embed, {
-            uri: 'spotify:playlist:73BxUSHSjRcoliJeAZDlij',
-            width: embed.parentElement.clientWidth - 20,
-            height: 380
-        }, function () {});
-    };
-
-    var apiScript = document.createElement('script');
-    apiScript.src = 'https://open.spotify.com/embed/iframe-api/v1';
-    apiScript.async = true;
-    apiScript.onerror = function () {
-        console.error('Não foi possível carregar a API do Spotify.');
-    };
-    document.body.appendChild(apiScript);
-}
-
-function renderFooter(logo) {
-    var target = document.getElementById('site-footer');
-    if (!target) {
-        return;
-    }
-
-    target.innerHTML = `
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-column branding">
-                    ${logo}
-                    <p>Uma mente com uma infinitude de mundos a serem criados.</p>
-                </div>
-                <nav class="footer-column links" aria-label="Navegação no rodapé">
-                    <h4 class="footer-heading">Navegação</h4>
-                    <ul>
-                        <li><a href="index.html">Sobre Mim</a></li>
-                        <li><a href="services.html">Serviços</a></li>
-                        <li><a href="portfolio.html">Portfólio</a></li>
-                        <li><a href="contact.html">Contactos</a></li>
-                    </ul>
-                </nav>
-                <div class="footer-column contact">
-                    <h4 class="footer-heading">Contactos</h4>
-                    <div class="footer-contact-links">
-                        <a href="mailto:sofiamonteiro.9@gmail.com">E-mail</a>
-                        <a href="tel:+351934389802">Telemóvel</a>
-                        <a href="https://instagram.com/soh_wish" target="_blank" rel="noopener noreferrer" title="Instagram">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Sofia Silva 2026</p>
-            </div>
-        </footer>
-        <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>`;
-}
-
-// modos
-function setupThemeSwitch() {
-    var themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) {
-        return;
-    }
-
-    var savedTheme = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-
-    themeToggle.checked = isDark;
-    themeToggle.addEventListener('change', function () {
-        isDark = themeToggle.checked;
-        document.documentElement.classList.toggle('dark-mode', isDark);
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-}
-
-// menu responsivo
-function setupMobileMenu() {
+// menu
+function setupMenu() {
     var menuButton = document.getElementById('mobile-menu');
     var links = document.getElementById('nav-links');
-    var actions = document.querySelector('.nav-actions');
-    var themeSwitch = document.querySelector('.theme-switch');
 
     if (!menuButton || !links) {
         return;
     }
 
     function setMenuOpen(isOpen) {
+        if (!isOpen && links.contains(document.activeElement)) {
+            menuButton.focus();
+        }
         links.classList.toggle('active', isOpen);
-        links.setAttribute('aria-hidden', String(!isOpen && window.innerWidth <= 768));
+        links.setAttribute('aria-hidden', String(!isOpen));
         menuButton.classList.toggle('is-active', isOpen);
         menuButton.setAttribute('aria-expanded', String(isOpen));
         menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
         document.body.classList.toggle('menu-open', isOpen);
     }
 
-    function moveThemeSwitch() {
-        var wrapper = document.getElementById('theme-switch-mobile-wrapper');
-
-        if (window.innerWidth <= 768 && !wrapper && themeSwitch) {
-            wrapper = document.createElement('li');
-            wrapper.id = 'theme-switch-mobile-wrapper';
-            wrapper.style.cssText = 'list-style: none; margin-top: 1rem;';
-            wrapper.appendChild(themeSwitch);
-            links.appendChild(wrapper);
-        } else if (window.innerWidth > 768 && wrapper) {
-            actions.insertBefore(themeSwitch, menuButton);
-            wrapper.remove();
-        }
-    }
-
     setMenuOpen(false);
-    moveThemeSwitch();
 
     menuButton.addEventListener('click', function () {
         setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
@@ -296,43 +133,9 @@ function setupMobileMenu() {
         }
     });
 
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
-            setMenuOpen(false);
-        }
-        moveThemeSwitch();
-    });
-
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
             setMenuOpen(false);
-        }
-    });
-}
-
-// painel spotify
-function setupSpotifyMenu() {
-    var button = document.getElementById('spotify-btn');
-    var panel = document.getElementById('spotify-panel');
-    if (!button || !panel) {
-        return;
-    }
-
-    function setOpen(isOpen) {
-        panel.classList.toggle('open', isOpen);
-        panel.setAttribute('aria-hidden', String(!isOpen));
-        button.classList.toggle('open', isOpen);
-        button.setAttribute('aria-expanded', String(isOpen));
-        button.textContent = isOpen ? '✕ Fechar' : 'Playlist';
-    }
-
-    button.addEventListener('click', function () {
-        setOpen(!panel.classList.contains('open'));
-    });
-
-    document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            setOpen(false);
         }
     });
 }
@@ -354,19 +157,6 @@ function setupBackToTop() {
     button.addEventListener('click', function () {
         window.scrollTo(0, 0);
     });
-}
-
-// seletor menu pag atual
-function setActivePage() {
-    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    var links = document.querySelectorAll('.nav-links a');
-
-    for (var i = 0; i < links.length; i++) {
-        if (links[i].getAttribute('href') === currentPage) {
-            links[i].classList.add('active');
-            links[i].setAttribute('aria-current', 'page');
-        }
-    }
 }
 
 // imagens
@@ -663,14 +453,12 @@ function setupPortfolio() {
 
     closeButton.addEventListener('click', closeLightbox);
     if (previousButton) {
-        previousButton.addEventListener('click', function (event) {
-            event.stopPropagation();
+        previousButton.addEventListener('click', function () {
             showAdjacentItem(-1);
         });
     }
     if (nextButton) {
-        nextButton.addEventListener('click', function (event) {
-            event.stopPropagation();
+        nextButton.addEventListener('click', function () {
             showAdjacentItem(1);
         });
     }
@@ -716,13 +504,6 @@ function setupPortfolio() {
     window.addEventListener('hashchange', openProjectFromAddress);
 }
 
-// iniciar
-document.addEventListener('DOMContentLoaded', function () {
-    renderSharedLayout();
-    setupThemeSwitch();
-    setupMobileMenu();
-    setupSpotifyMenu();
-    setupBackToTop();
-    setActivePage();
-    setupPortfolio();
-});
+setupMenu();
+setupBackToTop();
+setupPortfolio();

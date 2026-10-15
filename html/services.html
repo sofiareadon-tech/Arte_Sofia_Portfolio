@@ -12,8 +12,25 @@
 </head>
 
 <body>
-    <div id="site-header"></div>
-    <div id="site-spotify"></div>
+    <header>
+        <nav aria-label="Navegação principal">
+            <a href="index.html" class="logo">A Arte de Sofia</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Sobre Mim</a></li>
+                <li><a href="services.html" class="active" aria-current="page">Serviços</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="contact.html">Contactos</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button type="button" class="menu-toggle" id="mobile-menu"
+                    aria-label="Abrir menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <div class="paper-note services-intro">
@@ -22,25 +39,25 @@
         </div>
 
         <section class="services-grid">
-            <article class="service-card" data-service="design">
+            <article class="service-card">
                 <div class="service-icon">✦</div>
                 <h3>Design</h3>
                 <p>Identidades visuais, cartazes, materiais promocionais e peças digitais adaptados às escolhas feitas.</p>
                 <a href="portfolio.html#design" class="service-link">Ver exemplos →</a>
             </article>
-            <article class="service-card" data-service="fotografia">
+            <article class="service-card">
                 <div class="service-icon">✦</div>
                 <h3>Fotografia</h3>
                 <p>Fotografia de natureza, pessoas e detalhes do quotidiano que captam as memórias que se quer eternalizar.</p>
                 <a href="contact.html" class="service-link">Falar sobre um projeto →</a>
             </article>
-            <article class="service-card" data-service="copy">
+            <article class="service-card">
                 <div class="service-icon">✦</div>
                 <h3>Copywriting</h3>
                 <p>Textos para websites, redes sociais e campanhas adaptados ao tom de cada projeto e feito para agradar os públicos pretendidos.</p>
                 <a href="contact.html" class="service-link">Falar sobre um projeto →</a>
             </article>
-            <article class="service-card" data-service="revisao">
+            <article class="service-card">
                 <div class="service-icon">✦</div>
                 <h3>Revisão de Texto</h3>
                 <p>Revisão gramatical e ortográfica de textos para que a mensagem chegue sem erros e com a força que deve.</p>
@@ -50,7 +67,7 @@
 
         <section class="paper-note services-tools">
             <h2>As Minhas Ferramentas</h2>
-            <p class="services-tools-intro">Cada projeto escolhe a ferramenta certa. Trabalho com programas que permitem ir do esboço ao produto final com o maior cuidado necessário.</p>
+            <p>Cada projeto escolhe a ferramenta certa. Trabalho com programas que permitem ir do esboço ao produto final com o maior cuidado necessário.</p>
 
             <div class="programs">
                 <a href="portfolio.html#fotografia" class="program-item">
@@ -86,7 +103,36 @@
 
     </main>
 
-    <div id="site-footer"></div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column branding">
+                <a href="index.html" class="logo">A Arte de Sofia</a>
+                <p>Uma mente com uma infinitude de mundos a serem criados.</p>
+            </div>
+            <nav class="footer-column links" aria-label="Navegação no rodapé">
+                <h4 class="footer-heading">Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Sobre Mim</a></li>
+                    <li><a href="services.html">Serviços</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="contact.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <div class="footer-column contact">
+                <h4 class="footer-heading">Contactos</h4>
+                <div class="footer-contact-links">
+                    <a href="mailto:sofiamonteiro.9@gmail.com">E-mail</a>
+                    <a href="tel:+351934389802">Telemóvel</a>
+                    <a href="https://instagram.com/soh_wish" target="_blank"
+                        rel="noopener noreferrer">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Sofia Silva 2026</p>
+        </div>
+    </footer>
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
     <script src="../js/script.js?v=1.14"></script>
 </body>
 

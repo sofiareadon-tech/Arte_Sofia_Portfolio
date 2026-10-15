@@ -12,8 +12,25 @@
 </head>
 
 <body>
-    <div id="site-header"></div>
-    <div id="site-spotify"></div>
+    <header>
+        <nav aria-label="Navegação principal">
+            <span class="logo">A Arte de Sofia</span>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Sobre Mim</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">Contactos</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button type="button" class="menu-toggle" id="mobile-menu"
+                    aria-label="Abrir menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <div class="contact-container paper-note">
@@ -26,7 +43,7 @@
                 <p><strong>Instagram:</strong> <a href="https://instagram.com/soh_wish" target="_blank" rel="noopener noreferrer">@soh_wish</a></p>
             </div>
 
-            <form id="contact-form" action="mailto:sofiamonteiro.9@gmail.com" method="POST" enctype="text/plain" aria-label="Formulário de contacto">
+            <form action="mailto:sofiamonteiro.9@gmail.com" method="POST" enctype="text/plain" aria-label="Formulário de contacto">
                 <div class="form-field">
                     <label for="contact-name">Nome</label>
                     <input id="contact-name" type="text" name="name" autocomplete="name" required>
@@ -48,7 +65,36 @@
         </div>
     </main>
 
-    <div id="site-footer"></div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column branding">
+                <span class="logo">A Arte de Sofia</span>
+                <p>Uma mente com uma infinitude de mundos a serem criados.</p>
+            </div>
+            <nav class="footer-column links" aria-label="Navegação no rodapé">
+                <h4 class="footer-heading">Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Sobre Mim</a></li>
+                    <li><a href="services.html">Serviços</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="contact.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <div class="footer-column contact">
+                <h4 class="footer-heading">Contactos</h4>
+                <div class="footer-contact-links">
+                    <a href="mailto:sofiamonteiro.9@gmail.com">E-mail</a>
+                    <a href="tel:+351934389802">Telemóvel</a>
+                    <a href="https://instagram.com/soh_wish" target="_blank" rel="noopener noreferrer"
+                        title="Instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Sofia Silva 2026</p>
+        </div>
+    </footer>
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
     <script src="../js/script.js?v=1.14"></script>
 </body>
 

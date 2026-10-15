@@ -12,12 +12,10 @@ Portfólio pessoal de design, ilustração, fotografia e comunicação visual, a
 ## Funcionalidades
 
 - Layout responsivo para computador e dispositivos móveis
-- Tema claro/escuro, com preferência guardada no navegador
-- Navegação adaptada a ecrãs pequenos
-- Galeria agrupada por categoria, com imagens ampliáveis, navegação por setas e teclado
+- Menu hambúrguer em computadores e dispositivos móveis
+- Galeria de imagens com overlay, lightbox e navegação por slideshow
 - Abertura de projetos específicos através de ligações com hash ou parâmetro `project`
-- Playlist Spotify incorporada
-- Header e footer partilhados entre páginas
+- Fundo com textura local e favicon
 
 ## Tecnologias
 
@@ -28,8 +26,8 @@ Portfólio pessoal de design, ilustração, fotografia e comunicação visual, a
 ## Estrutura do projeto
 
 - `html/` — páginas do site
-- `css/style.css` — estilos, layout responsivo e temas
-- `js/script.js` — layout partilhado, interações e galeria
+- `css/style.css` — estilos, layout responsivo, galerias e lightbox
+- `js/script.js` — interações e galeria
 - `images/` — imagens da página inicial, ícones dos serviços, favicon e outros recursos visuais
 - `Porfólio/` — imagens dos projetos apresentados na galeria
 - `fontes/` — tipografias locais, incluindo Lora, Amoria, Loverine, Crimson Pro e Playfair Display
@@ -39,10 +37,10 @@ As fontes Lora estão disponíveis nas versões normal e itálica.
 ## Organização do código
 
 - No início de `js/script.js` estão os dados dos projetos e os textos apresentados na lightbox.
-- As funções `renderHeader`, `renderSpotify` e `renderFooter` criam as partes partilhadas das páginas.
-- As funções `setup...` ligam os controlos do tema, do menu, da playlist, do botão de topo e da galeria.
+- A navegação e o rodapé estão escritos diretamente nos ficheiros HTML.
+- O JavaScript controla o menu, o botão de topo e a galeria com lightbox/slideshow.
 - Em `css/style.css`, as regras estão agrupadas por elementos comuns, páginas, lightbox, rodapé e tamanhos de ecrã.
-- Cada página em `html/` contém o seu conteúdo; o cabeçalho e o rodapé são partilhados pelo JavaScript.
+- Cada página contém o seu próprio cabeçalho e rodapé.
 
 ## Visualizar localmente
 
