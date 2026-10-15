@@ -1,4 +1,4 @@
-// popups (portfólio)
+/* Dados do portfólio */
 var portfolioData = [
     {
         title: 'Banner principal 2ª versão',
@@ -75,7 +75,7 @@ var portfolioData = [
     }
 ];
 
-// texto (popups)
+/* Textos dos projetos apresentados na lightbox */
 var projectDetails = {
     'Bloody Ruby': {
         Objetivo: 'Desenvolver uma identidade visual coesa e luxuosa para a joalharia fictícia, com foco em luxo, elegância e atemporalidade.',
@@ -100,7 +100,7 @@ var projectDetails = {
     }
 };
 
-// menu
+/* Navegação */
 function setupMenu() {
     var menuButton = document.getElementById('mobile-menu');
     var links = document.getElementById('nav-links');
@@ -140,7 +140,7 @@ function setupMenu() {
     });
 }
 
-// botão subir pag
+/* Botão voltar ao topo */
 function setupBackToTop() {
     var button = document.getElementById('back-to-top');
     if (!button) {
@@ -159,7 +159,7 @@ function setupBackToTop() {
     });
 }
 
-// imagens
+/* Funções auxiliares da galeria */
 function encodeImagePath(path) {
     return path.split('/').map(encodeURIComponent).join('/');
 }
@@ -174,7 +174,7 @@ function formatCategoryId(value) {
         .replace(/^-+|-+$/g, '');
 }
 
-// lightbox (portfólio)
+/* Galeria e lightbox */
 function setupPortfolio() {
     var sections = document.getElementById('portfolio-sections');
     if (!sections) {
@@ -504,6 +504,7 @@ function setupPortfolio() {
     window.addEventListener('hashchange', openProjectFromAddress);
 }
 
+/* Inicialização das funcionalidades */
 setupMenu();
 setupBackToTop();
 setupPortfolio();
