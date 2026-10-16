@@ -38,7 +38,7 @@ As fontes Lora estão disponíveis nas versões normal e itálica.
 
 - No início de `js/script.js` estão os dados dos projetos e os textos apresentados na lightbox.
 - A navegação e o rodapé estão escritos diretamente nos ficheiros HTML.
-- O JavaScript controla o menu, o botão de topo e a galeria com lightbox/slideshow.
+- O JavaScript controla o menu e a galeria com lightbox/slideshow.
 - Em `css/style.css`, as regras estão agrupadas por elementos comuns, páginas, lightbox, rodapé e tamanhos de ecrã.
 - Cada página contém o seu próprio cabeçalho e rodapé.
 

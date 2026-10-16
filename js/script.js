@@ -79,21 +79,21 @@ var portfolioData = [
 var projectDetails = {
     'Bloody Ruby': {
         Objetivo: 'Desenvolver uma identidade visual coesa e luxuosa para a joalharia fictícia, com foco em luxo, elegância e atemporalidade.',
-        'Desafio / Problema': 'Unir tradição, sofisticação e coerência visual sem cair no excesso de elementos ou ser minimalista.',
+        Problema: 'Unir tradição, sofisticação e coerência visual sem cair no excesso de elementos ou ser minimalista.',
         'Processo Criativo': 'Exploração da palete de cores através do moodboard, da tipografia e da composição para criar peças que funcionem em conjunto e reforcem a identidade da marca.',
         Ferramentas: 'Figma e Affinity',
         'Resultado & Reflexão': 'Uma linguagem visual forte, elegante e consistente que representa a marca.'
     },
     'Cartazes musicais': {
         Objetivo: 'Criar cartazes com impacto visual e identidade própria para cada música e que transmitam uma narrativa.',
-        'Desafio / Problema': 'Traduzir a atmosfera de cada canção para uma composição visual clara e coerente.',
+        Problema: 'Traduzir a atmosfera de cada canção para uma composição visual clara e coerente.',
         'Processo Criativo': 'Seleção de elementos visuais, tipografias e paletes de cor para refletir a sensibilidade de cada obra musical.',
         Ferramentas: 'Figma',
         'Resultado & Reflexão': 'Uma série de cartazes com identidade forte e coesa que contam cada um uma pequena história.'
     },
     'First Moon Blood': {
         Objetivo: 'Construir uma identidade visual sombria, intensa e poderosa para a personagem e a sua narrativa.',
-        'Desafio / Problema': 'Equilibrar o mistério e a força para criar uma estética marcante.',
+        Problema: 'Equilibrar o mistério e a força para criar uma estética marcante.',
         'Processo Criativo': 'Uso de contraste, simbolismo e composição para transmitir a personalidade da personagem.',
         Ferramentas: 'Figma',
         'Resultado & Reflexão': 'Uma linguagem visual envolvente, dramática e coerente com a identidade da personagem.'
@@ -140,25 +140,6 @@ function setupMenu() {
     });
 }
 
-/* Botão voltar ao topo */
-function setupBackToTop() {
-    var button = document.getElementById('back-to-top');
-    if (!button) {
-        return;
-    }
-
-    function updateButton() {
-        button.classList.toggle('visible', window.scrollY > 300);
-    }
-
-    window.addEventListener('scroll', updateButton, { passive: true });
-    updateButton();
-
-    button.addEventListener('click', function () {
-        window.scrollTo(0, 0);
-    });
-}
-
 /* Funções auxiliares da galeria */
 function encodeImagePath(path) {
     return path.split('/').map(encodeURIComponent).join('/');
@@ -177,7 +158,8 @@ function formatCategoryId(value) {
 /* Galeria e lightbox */
 function setupPortfolio() {
     var sections = document.getElementById('portfolio-sections');
-    if (!sections) {
+    var projectTemplate = document.getElementById('portfolio-project-template');
+    if (!sections || !projectTemplate) {
         return;
     }
 
@@ -190,7 +172,7 @@ function setupPortfolio() {
     var nextButton = document.getElementById('lightbox-next');
     var allItems = [];
     var projectGrids = [];
-    var currentIndex = 0;
+    var slideIndex = 1;
     var returnFocus = null;
     var updateTimer;
     var closeTimer;
@@ -199,8 +181,8 @@ function setupPortfolio() {
         return;
     }
 
-    function arrangeGrid(projectGrid) {
-        var columnCount = window.innerWidth <= 900 ? 2 : 3;
+    function arrangeProjectGrid(projectGrid) {
+        var columnCount = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
         if (projectGrid.columnCount === columnCount) {
             return;
         }
@@ -210,103 +192,64 @@ function setupPortfolio() {
 
         var columns = [];
         for (var i = 0; i < columnCount; i++) {
-            var column = document.createElement('div');
-            column.className = 'gallery-column';
+            var column = projectTemplate.content.querySelector('.gallery-column').cloneNode(true);
+            column.textContent = '';
             columns.push(column);
             projectGrid.element.appendChild(column);
         }
 
-        var centeredCards = [];
-        var columnIndex = 0;
         for (var j = 0; j < projectGrid.cards.length; j++) {
-            var card = projectGrid.cards[j];
-            var centerOnMobile = card.classList.contains('polaroid--centered-mobile');
-            var centerOnDesktop = card.classList.contains('polaroid--centered');
-            var shouldCenter = columnCount === 2 ? centerOnMobile : centerOnDesktop;
-
-            if (shouldCenter) {
-                centeredCards.push(card);
-            } else {
-                columns[columnIndex % columnCount].appendChild(card);
-                columnIndex++;
-            }
-        }
-
-        if (centeredCards.length) {
-            var centeredRow = document.createElement('div');
-            centeredRow.className = 'gallery-centered-row';
-            for (var k = 0; k < centeredCards.length; k++) {
-                centeredRow.appendChild(centeredCards[k]);
-            }
-            projectGrid.element.appendChild(centeredRow);
+            columns[j % columnCount].appendChild(projectGrid.cards[j]);
         }
     }
 
     function createCard(item) {
         var index = allItems.push(item) - 1;
-        var card = document.createElement('button');
-        card.type = 'button';
-        card.className = 'polaroid';
-        if (item.project === 'Bloody Ruby' && item.title === 'Icon') {
-            card.classList.add('polaroid--centered');
-        }
-        if ((item.project === 'First Moon Blood' && item.title === 'Icon') ||
-            (item.project === 'Cartazes musicais' && item.title === 'Morte')) {
-            card.classList.add('polaroid--centered-mobile');
-        }
+        var column = projectTemplate.content.querySelector('.gallery-column').cloneNode(true);
+        var card = column.querySelector('.demo');
+        var cardImage = card.querySelector('img');
+        card.dataset.slideIndex = String(index + 1);
+        card.setAttribute('aria-pressed', 'false');
         card.setAttribute('aria-label', 'Ver detalhes de ' + item.title);
-
-        var tape = document.createElement('div');
-        tape.className = 'tape';
-        tape.setAttribute('aria-hidden', 'true');
-        card.appendChild(tape);
-
-        var cardImage = document.createElement('img');
         cardImage.src = encodeImagePath('../' + item.imagePath);
         cardImage.alt = item.title;
-        cardImage.loading = 'lazy';
 
         if (item.specialStyle === 'contain') {
             card.classList.add('polaroid--contain');
         }
 
-        card.appendChild(cardImage);
-
-        var title = document.createElement('div');
-        title.className = 'polaroid-caption';
-        title.textContent = item.title;
-        card.appendChild(title);
+        card.querySelector('.polaroid-caption').textContent = item.title;
 
         card.addEventListener('click', function () {
-            openLightbox(index);
+            currentSlide(index + 1);
+            openModal();
         });
-        return card;
+        return column;
     }
 
     function showProject(projectName, items) {
-        var heading = document.createElement('h2');
+        var projectSection = projectTemplate.content.firstElementChild.cloneNode(true);
+        var heading = projectSection.querySelector('.project-header');
         heading.id = formatCategoryId(projectName);
-        heading.className = 'project-header';
         heading.textContent = projectName;
-        sections.appendChild(heading);
 
-        var grid = document.createElement('section');
-        grid.className = 'gallery-grid';
+        var grid = projectSection.querySelector('.gallery-grid');
         grid.setAttribute('aria-label', 'Galeria de ' + projectName);
 
         var cards = [];
         for (var i = 0; i < items.length; i++) {
-            cards.push(createCard(items[i]));
+            var column = createCard(items[i]);
+            cards.push(column.querySelector('.demo'));
         }
 
-        sections.appendChild(grid);
+        sections.appendChild(projectSection);
         var projectGrid = {
             element: grid,
             cards: cards,
             columnCount: 0
         };
         projectGrids.push(projectGrid);
-        arrangeGrid(projectGrid);
+        arrangeProjectGrid(projectGrid);
     }
 
     function groupProjects() {
@@ -337,16 +280,15 @@ function setupPortfolio() {
 
         for (var label in details) {
             html += `
-                <details class="info-block">
-                    <summary>${label}</summary>
-                    <span>${details[label]}</span>
-                </details>`;
+                <div class="info-block">
+                    <h4 class="info-block-title">${label}</h4>
+                    <p>${details[label]}</p>
+                </div>`;
         }
         return html;
     }
 
-    function updateLightbox() {
-        var item = allItems[currentIndex];
+    function updateSlide(item, index) {
         image.style.opacity = '0';
         image.style.transform = 'scale(0.96)';
 
@@ -368,7 +310,7 @@ function setupPortfolio() {
             caption.querySelector('.lightbox-header').appendChild(tag);
 
             if (counter) {
-                counter.textContent = (currentIndex + 1) + ' / ' + allItems.length;
+                counter.textContent = index + ' / ' + allItems.length;
             }
 
             image.style.opacity = '1';
@@ -376,12 +318,9 @@ function setupPortfolio() {
         }, 180);
     }
 
-    function openLightbox(index) {
+    function openModal() {
         window.clearTimeout(closeTimer);
         returnFocus = document.activeElement;
-        currentIndex = index;
-        updateLightbox();
-        lightbox.setAttribute('aria-label', 'Detalhes de ' + allItems[index].title);
         lightbox.setAttribute('aria-hidden', 'false');
         lightbox.style.display = 'flex';
         document.body.classList.add('lightbox-open');
@@ -390,7 +329,7 @@ function setupPortfolio() {
         closeButton.focus();
     }
 
-    function closeLightbox() {
+    function closeModal() {
         window.clearTimeout(updateTimer);
         lightbox.classList.remove('show');
         lightbox.setAttribute('aria-hidden', 'true');
@@ -406,9 +345,34 @@ function setupPortfolio() {
         }, 300);
     }
 
-    function showAdjacentItem(direction) {
-        currentIndex = (currentIndex + direction + allItems.length) % allItems.length;
-        updateLightbox();
+    function showSlides(n) {
+        if (n > allItems.length) {
+            slideIndex = 1;
+        } else if (n < 1) {
+            slideIndex = allItems.length;
+        } else {
+            slideIndex = n;
+        }
+
+        var item = allItems[slideIndex - 1];
+        lightbox.setAttribute('aria-label', 'Detalhes de ' + item.title);
+
+        var dots = sections.getElementsByClassName('demo');
+        for (var i = 0; i < dots.length; i++) {
+            var isActive = Number(dots[i].dataset.slideIndex) === slideIndex;
+            dots[i].classList.toggle('active', isActive);
+            dots[i].setAttribute('aria-pressed', String(isActive));
+        }
+
+        updateSlide(item, slideIndex);
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
     }
 
     function openProjectFromAddress() {
@@ -429,7 +393,8 @@ function setupPortfolio() {
                 heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             window.setTimeout(function () {
-                openLightbox(itemIndex);
+                currentSlide(itemIndex + 1);
+                openModal();
             }, 250);
             return;
         }
@@ -447,25 +412,25 @@ function setupPortfolio() {
 
     window.addEventListener('resize', function () {
         for (var i = 0; i < projectGrids.length; i++) {
-            arrangeGrid(projectGrids[i]);
+            arrangeProjectGrid(projectGrids[i]);
         }
     });
 
-    closeButton.addEventListener('click', closeLightbox);
+    closeButton.addEventListener('click', closeModal);
     if (previousButton) {
         previousButton.addEventListener('click', function () {
-            showAdjacentItem(-1);
+            plusSlides(-1);
         });
     }
     if (nextButton) {
         nextButton.addEventListener('click', function () {
-            showAdjacentItem(1);
+            plusSlides(1);
         });
     }
 
     lightbox.addEventListener('click', function (event) {
         if (event.target === lightbox) {
-            closeLightbox();
+            closeModal();
         }
     });
 
@@ -475,15 +440,15 @@ function setupPortfolio() {
         }
 
         if (event.key === 'Escape') {
-            closeLightbox();
+            closeModal();
         } else if (event.key === 'ArrowLeft') {
             event.preventDefault();
-            showAdjacentItem(-1);
+            plusSlides(-1);
         } else if (event.key === 'ArrowRight') {
             event.preventDefault();
-            showAdjacentItem(1);
+            plusSlides(1);
         } else if (event.key === 'Tab') {
-            var focusable = lightbox.querySelectorAll('button:not([disabled]), summary');
+            var focusable = lightbox.querySelectorAll('button:not([disabled])');
             var first = focusable[0];
             var last = focusable[focusable.length - 1];
 
@@ -506,5 +471,4 @@ function setupPortfolio() {
 
 /* Inicialização das funcionalidades */
 setupMenu();
-setupBackToTop();
 setupPortfolio();

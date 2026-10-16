@@ -33,16 +33,31 @@
 
     <main id="design">
         <h1>O Meu Portfólio</h1>
-        <p>Estes são alguns dos projetos que fiz ao longo de um ano de aprendizagem. Clique em qualquer imagem para ver mais detalhes.</p>
+        <p>Estes são alguns dos mundos que criei ao longo de um ano de aprendizagem. Clique em qualquer imagem para ver mais detalhes.</p>
 
         <div id="portfolio-sections"></div>
+
+        <template id="portfolio-project-template">
+            <section class="project-section">
+                <h2 class="project-header"></h2>
+                <div class="row gallery-grid">
+                    <div class="column gallery-column">
+                        <button type="button" class="content polaroid demo" aria-pressed="false">
+                            <div class="tape" aria-hidden="true"></div>
+                            <img class="modal-trigger" src="" alt="" loading="lazy">
+                            <div class="polaroid-caption"></div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </template>
     </main>
 
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Detalhes do projeto" tabindex="-1">
-        <button type="button" class="lightbox-close" aria-label="Fechar">×</button>
+    <div id="lightbox" class="modal lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Detalhes do projeto" tabindex="-1">
+        <button type="button" class="close lightbox-close" aria-label="Fechar">×</button>
         <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Imagem anterior">‹</button>
         <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="">
+            <img class="modal-content" id="lightbox-img" src="" alt="">
             <div id="lightbox-caption" class="lightbox-caption"></div>
             <div class="lightbox-counter" id="lightbox-counter" aria-live="polite"></div>
         </div>
@@ -78,7 +93,6 @@
             <p>Sofia Silva 2026</p>
         </div>
     </footer>
-    <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
     <script src="../js/script.js?v=1.14"></script>
 </body>
 
