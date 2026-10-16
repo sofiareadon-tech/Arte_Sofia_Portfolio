@@ -1,4 +1,4 @@
-/* Navegação */
+/* menu */
 function setupMenu() {
     var menuButton = document.getElementById('mobile-menu');
     var links = document.getElementById('nav-links');
@@ -12,17 +12,14 @@ function setupMenu() {
             menuButton.focus();
         }
         links.classList.toggle('ativo', isOpen);
-        links.setAttribute('aria-hidden', String(!isOpen));
         menuButton.classList.toggle('menu-ativo', isOpen);
-        menuButton.setAttribute('aria-expanded', String(isOpen));
-        menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
         document.body.classList.toggle('menu-aberto', isOpen);
     }
 
     setMenuOpen(false);
 
     menuButton.addEventListener('click', function () {
-        setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+        setMenuOpen(!menuButton.classList.contains('menu-ativo'));
     });
 
     links.addEventListener('click', function (event) {
@@ -38,14 +35,13 @@ function setupMenu() {
     });
 }
 
-/* Galeria e lightbox */
+/* portfolio */
 function setupPortfolio() {
     var gallery = document.getElementById('portfolio-sections');
     var lightbox = document.getElementById('lightbox');
     if (!gallery || !lightbox) return;
 
     var slides = Array.from(lightbox.querySelectorAll('.diapositivo-ampliado'));
-    var thumbnails = Array.from(gallery.querySelectorAll('.item-portfolio'));
     var details = Array.from(lightbox.querySelectorAll('[data-project-details]'));
     var counter = document.getElementById('lightbox-counter');
     var index = 0;
@@ -53,9 +49,6 @@ function setupPortfolio() {
     var closeTimer;
 
     if (!slides.length) return;
-    thumbnails.forEach(function (thumbnail) {
-        thumbnail.setAttribute('aria-pressed', 'false');
-    });
 
     function showSlides(number) {
         if (number > slides.length) number = 1;
@@ -69,10 +62,6 @@ function setupPortfolio() {
         details.forEach(function (detail) {
             detail.style.display = detail.dataset.projectDetails === project ? 'flex' : 'none';
         });
-        thumbnails.forEach(function (thumbnail) {
-            thumbnail.setAttribute('aria-pressed', String(Number(thumbnail.dataset.slide) === index));
-        });
-        lightbox.setAttribute('aria-labelledby', 'lightbox-title-' + index);
         if (counter) counter.textContent = index + ' / ' + slides.length;
     }
 
@@ -80,7 +69,6 @@ function setupPortfolio() {
         window.clearTimeout(closeTimer);
         if (lightbox.style.display !== 'flex') returnFocus = document.activeElement;
         showSlides(number);
-        lightbox.setAttribute('aria-hidden', 'false');
         lightbox.style.display = 'flex';
         document.body.classList.add('ampliacao-aberta');
         void lightbox.offsetWidth;
@@ -90,7 +78,6 @@ function setupPortfolio() {
 
     function closeModal() {
         lightbox.classList.remove('visivel');
-        lightbox.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('ampliacao-aberta');
         window.clearTimeout(closeTimer);
         closeTimer = window.setTimeout(function () {
