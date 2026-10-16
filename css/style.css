@@ -331,6 +331,7 @@ main {
     font-size: 1.5rem;
     text-align: center;
     margin-top: 10px;
+    margin-bottom: 4px;
     color: var(--purple);
 }
 
@@ -452,8 +453,12 @@ strong, b {
 
 .latest-projects-title {
     font-size: clamp(2.2rem, 5vw, 3.2rem);
-    margin-bottom: 2.8rem;
+    margin-bottom: 0.75rem;
     display: inline-block;
+}
+
+.latest-projects-intro {
+    margin-bottom: 2rem;
 }
 
 .latest-projects-title::after {
@@ -597,11 +602,6 @@ strong, b {
     outline-offset: 4px;
 }
 
-.gallery-grid .polaroid.active {
-    outline: 3px solid var(--purple);
-    outline-offset: 4px;
-}
-
 /* serviços */
 .services-intro {
     margin-bottom: 2rem;
@@ -610,8 +610,14 @@ strong, b {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
     gap: 2rem;
     margin-top: 2rem;
+    align-items: stretch;
+}
+
+.services-column {
+    display: flex;
 }
 
 .service-card {
@@ -626,22 +632,13 @@ strong, b {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    width: 100%;
+    flex: 1;
 }
 
 .service-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.service-card::after {
-    content: '\2726';
-    position: absolute;
-    bottom: 1rem;
-    right: 1.2rem;
-    font-size: 2rem;
-    opacity: 0.08;
-    color: var(--purple);
-    pointer-events: none;
 }
 
 .service-icon {

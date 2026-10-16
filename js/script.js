@@ -1,75 +1,75 @@
 /* Dados do portfólio */
 var portfolioData = [
     {
-        title: 'Banner principal 2ª versão',
-        description: 'Segunda variação do banner principal da Bloody Ruby, que explora a figura feminina poderosa em sintonia com o dramático e o vermelho.',
-        project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Banner principal V2.jpg'
-    },
-    {
         title: 'Banner principal',
-        description: 'Banner institucional da Bloody Ruby com estética romântica, dramáticaa e vermelho.',
+        description: 'Banner da Bloody Ruby com uma estética mais centrada no romance, drama e vermelho.',
         project: 'Bloody Ruby',
         imagePath: 'Porfólio/Bloody Ruby/Banner principal.jpg'
     },
     {
+        title: 'Banner principal 2ª versão',
+        description: 'Segunda versão do banner principal do projeto Bloody Ruby que aborda a figura feminina como centro do poder na atualidade.',
+        project: 'Bloody Ruby',
+        imagePath: 'Porfólio/Bloody Ruby/Banner principal V2.jpg'
+    },
+    {
         title: 'Bloody Ruby',
-        description: 'Brandboard oficial da joalharia Bloody Ruby, incluindo a logomarca, a palete de cores e mockups da identidade visual em contextos associados.',
+        description: 'Brandboard da joalharia Bloody Ruby, incluindo a logomarca, a palete de cores e mockups da identidade visual em contextos associados.',
         project: 'Bloody Ruby',
         imagePath: 'Porfólio/Bloody Ruby/Bloody Ruby.png',
         specialStyle: 'contain'
     },
     {
-        title: 'Convite 2ª versão',
-        description: 'Segunda versão do convite de lançamento da nova coleção, com uma composição mais íntima e focada nas rosas vermelhas.',
-        project: 'Bloody Ruby',
-        imagePath: 'Porfólio/Bloody Ruby/Convite V2.png'
-    },
-    {
         title: 'Convite',
-        description: 'Convite de lançamento com estética de carta de amor, selo de cera vermelha e atmosfera romântica.',
+        description: 'Convite de lançamento da nova coleção com uma estética de carta intimista, selo de cera vermelha e atmosfera misteriosa onde a figura da personagem se dissipa.',
         project: 'Bloody Ruby',
         imagePath: 'Porfólio/Bloody Ruby/Convite.jpg'
     },
     {
+        title: 'Convite 2ª versão',
+        description: 'Segunda versão do convite de lançamento da nova coleção, com uma composição mais íntima com a personagem no seu centro e focada nas rosas vermelhas.',
+        project: 'Bloody Ruby',
+        imagePath: 'Porfólio/Bloody Ruby/Convite V2.png'
+    },
+    {
         title: 'Icon',
-        description: 'Monograma oficial da Bloody Ruby num ambiente de opulência.',
+        description: 'Monograma da Bloody Ruby num ambiente de drama.',
         project: 'Bloody Ruby',
         imagePath: 'Porfólio/Bloody Ruby/Icon.jpg'
     },
     {
         title: 'A Rua',
-        description: 'Cartaz da música A Rua, com tipografia em hierarquia, o olhar da protagonista e referências ao enredo.',
+        description: 'Cartaz da música A Rua de Jão,  baseado num mundo autoral da designer onde o olhar da protagonista corta o céu de Tavros assim como as suas tradições, mas ainda com uma ligação forte ao passado.',
         project: 'Cartazes musicais',
         imagePath: 'Porfólio/Cartazes musicais/A Rua.jpg'
     },
     {
         title: 'Combo da Sorte',
-        description: 'Cartaz inspirado em Combo da Sorte, com estética delicada, verde e simbolismo de união romântica e superação.',
+        description: 'Cartaz inspirado na música Combo da Sorte de Marina Sena, inspirado na história de amor do personagem e nas suas vivências difíceis até à sua superação.',
         project: 'Cartazes musicais',
         imagePath: 'Porfólio/Cartazes musicais/Combo da Sorte.png'
     },
     {
         title: 'Morte',
-        description: 'Cartaz de Morte com uma estética dramática, mística e intensa, inspirada no drama e no renascimento.',
+        description: 'Cartaz de Morte de Bea Duarte, com uma estética dramática, mística e intensa, inspirada no renascimento e na aceitação da mrote como um final  de ciclo e não da vida.',
         project: 'Cartazes musicais',
         imagePath: 'Porfólio/Cartazes musicais/Morte.jpg'
     },
     {
         title: 'Banner Principal',
-        description: 'Banner principal de First Moon Blood com atmosfera gótica, herege e uma identidade visual intensa.',
+        description: 'Banner principal de First Moon Blood com atmosfera gótica, herege e a figura feminina no centro como representação do poder.',
         project: 'First Moon Blood',
         imagePath: 'Porfólio/First Moon Blood/Banner Principal.png'
     },
     {
         title: 'Banner Secundário',
-        description: 'Banner secundário da identidade de First Moon Blood, com uma narrativa da trama da personagem e composição maisn ligada ao gótico.',
+        description: 'Banner secundário de First Moon Blood, com a história da personagem que a levou até onde se encontra e uma composição mais ligada ao gótico e vampírico.',
         project: 'First Moon Blood',
         imagePath: 'Porfólio/First Moon Blood/Banner Secundário.png'
     },
     {
         title: 'Icon',
-        description: 'Icon de First Moon Blood com foco no mistério, no espelho e na aura vampírica da personagem.',
+        description: 'Icon de First Moon Blood com foco no mistério, no espelho e na aura vampírica e sedutora da personagem.',
         project: 'First Moon Blood',
         imagePath: 'Porfólio/First Moon Blood/Icon.png'
     }
@@ -77,26 +77,26 @@ var portfolioData = [
 
 /* Textos dos projetos apresentados na lightbox */
 var projectDetails = {
-    'Bloody Ruby': {
-        Objetivo: 'Desenvolver uma identidade visual coesa e luxuosa para a joalharia fictícia, com foco em luxo, elegância e atemporalidade.',
-        Problema: 'Unir tradição, sofisticação e coerência visual sem cair no excesso de elementos ou ser minimalista.',
-        'Processo Criativo': 'Exploração da palete de cores através do moodboard, da tipografia e da composição para criar peças que funcionem em conjunto e reforcem a identidade da marca.',
+  'Bloody Ruby': {
+        Objetivo: 'Criação de uma identidade visual elegante, luxuosa, dramática e pudesse ser usada',
+        Problema: 'Explorar uma estética maximalista moderadamente sem cair no minimalismo e transmitir luxo e poder ao mesmo tempo.',
+        'Processo Criativo': 'Exploração da palete de cores e estética através do moodboard, da tipografia, de filtros e da composição para criar peças coesas e reforcem a identidade da marca.',
         Ferramentas: 'Figma e Affinity',
-        'Resultado & Reflexão': 'Uma linguagem visual forte, elegante e consistente que representa a marca.'
+        'Resultado & Reflexão': 'Uma identidade visual elegante e dramática que capta a estética pretendida e deixam espaço para mais.'
     },
     'Cartazes musicais': {
-        Objetivo: 'Criar cartazes com impacto visual e identidade própria para cada música e que transmitam uma narrativa.',
-        Problema: 'Traduzir a atmosfera de cada canção para uma composição visual clara e coerente.',
-        'Processo Criativo': 'Seleção de elementos visuais, tipografias e paletes de cor para refletir a sensibilidade de cada obra musical.',
+        Objetivo: 'Criação de cartazes inspirados em músicas e tramas autorais que expressem os versos escolhidos.',
+        Problema: 'Transmitir a atmosfera de cada canção para uma composição visual clara e coerente.',
+        'Processo Criativo': 'Seleção de PNGs e edição dos mesmos, tipografias, de filtros e paletes de cor associadas aos personagens para refletir o peso de cada música.',
         Ferramentas: 'Figma',
-        'Resultado & Reflexão': 'Uma série de cartazes com identidade forte e coesa que contam cada um uma pequena história.'
+        'Resultado & Reflexão': 'Três cartazes distintos que contam cada um uma pequena história associada às músicas.'
     },
     'First Moon Blood': {
-        Objetivo: 'Construir uma identidade visual sombria, intensa e poderosa para a personagem e a sua narrativa.',
-        Problema: 'Equilibrar o mistério e a força para criar uma estética marcante.',
-        'Processo Criativo': 'Uso de contraste, simbolismo e composição para transmitir a personalidade da personagem.',
+        Objetivo: 'Criação uma identidade visual sombria, intensa e poderosa centrada na personagem e na continuação da sua história.',
+        Problema: 'Explorar uma estética séria sem deixar a fantasia de lado, mas manter um caráter de poder e força.',
+        'Processo Criativo': 'Uso de PNGs editados, harmonia entre as cores e simbolismo que transmita a estética da personagem.',
         Ferramentas: 'Figma',
-        'Resultado & Reflexão': 'Uma linguagem visual envolvente, dramática e coerente com a identidade da personagem.'
+        'Resultado & Reflexão': 'Uma identidade visual dramática e sombria que caracteriza a identidade da personagem.'
     }
 };
 
