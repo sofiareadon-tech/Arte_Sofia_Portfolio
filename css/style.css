@@ -611,7 +611,7 @@ textarea:focus-visible {
   outline: 3px solid #8ab6d6;
   outline-offset: 3px;
 }
-.rodape {
+footer {
   margin-top: 5rem;
   padding: 4rem 5% 2rem;
   border-top: 3px dashed #b4d5ec;
@@ -624,18 +624,18 @@ textarea:focus-visible {
   max-width: 1200px;
   margin: 0 auto;
 }
-.coluna-rodape {
+.contentor-rodape > * {
   flex: 1;
   min-width: 250px;
 }
-.coluna-rodape h4 {
+.contentor-rodape h4 {
   position: relative;
   margin-bottom: 1.5rem;
   color: #7a65a6;
   font-family: 'Amoria', serif;
   font-size: 1.5rem;
 }
-.coluna-rodape h4::after {
+.contentor-rodape h4::after {
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -644,23 +644,21 @@ textarea:focus-visible {
   background: #b4d5ec;
   content: '';
 }
-.coluna-rodape ul {
+.contentor-rodape ul {
   list-style: none;
 }
-.coluna-rodape ul li {
+.contentor-rodape ul li {
   margin-bottom: 0.8rem;
 }
-.coluna-rodape ul li a {
+.contentor-rodape ul li a {
   color: #333;
   font-size: 1rem;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
-.coluna-rodape ul li a:hover {
-  padding-left: 5px;
+.contentor-rodape ul li a:hover {
   color: #7a65a6;
 }
-.coluna-rodape.identidade p {
+.identidade p {
   max-width: 300px;
   margin-top: 1rem;
   color: #666;
@@ -684,13 +682,11 @@ textarea:focus-visible {
   font-size: 0.85rem;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 .ligacoes-contacto-rodape a:hover,
 .ligacoes-contacto-rodape a:focus-visible {
   background: #7a65a6;
   color: #fff;
-  transform: translateY(-3px);
 }
 .base-rodape {
   margin-top: 4rem;
@@ -720,11 +716,11 @@ textarea:focus-visible {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .coluna-rodape.identidade {
+  .contentor-rodape > .identidade {
     grid-column: span 2;
     text-align: center;
   }
-  .coluna-rodape.identidade p {
+  .identidade p {
     margin: 1rem auto;
   }
 }
@@ -890,13 +886,13 @@ textarea:focus-visible {
     gap: 2rem 1rem;
     text-align: center;
   }
-  .coluna-rodape {
+  .contentor-rodape > * {
     min-width: 0;
   }
-  .coluna-rodape.identidade {
+  .contentor-rodape > .identidade {
     grid-column: 1 / -1;
   }
-  .coluna-rodape h4::after {
+  .contentor-rodape h4::after {
     left: 50%;
     transform: translateX(-50%);
   }
