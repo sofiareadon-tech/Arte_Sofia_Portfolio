@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfólio de Sofia, designer júnior criativa apaixonada por escrita, desenho, viagens e fotografia.">
     <title>A Arte de Sofia | Sobre Mim</title>
     <link rel="stylesheet" href="../css/style.css?v=3.1">
     <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -15,13 +13,23 @@
     <header>
         <nav>
             <a href="index.html" class="logotipo">A Arte de Sofia</a>
-            <ul class="ligacoes-navegacao" id="nav-links">
+            <ul class="ligacoes-navegacao" id="lista-navegacao">
                 <li><a href="index.html" class="ativo">Sobre Mim</a></li>
                 <li><a href="services.html">Serviços</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
+                <li class="navegacao-portfolio">
+                    <details>
+                        <summary>Portfólio</summary>
+                        <ul class="submenu-portfolio">
+                            <li><a href="portfolio.html">Todos os projetos</a></li>
+                            <li><a href="bloody_ruby.html">Bloody Ruby</a></li>
+                            <li><a href="first_moon_blood.html">First Moon Blood</a></li>
+                            <li><a href="cartazes_musicais.html">Cartazes musicais</a></li>
+                        </ul>
+                    </details>
+                </li>
                 <li><a href="contact.html">Contactos</a></li>
             </ul>
-            <button type="button" class="alternar-menu" id="mobile-menu">
+            <button type="button" class="alternar-menu" id="botao-menu">
                 <div class="barra"></div>
                 <div class="barra"></div>
                 <div class="barra"></div>
@@ -57,19 +65,19 @@
             <h2 class="titulo-projetos-recentes">Projetos recentes</h2>
             <p class="introducao-projetos-recentes">Algumas das histórias que contei através do design que formou criações envolventes e cheias de simbolismo.</p>
             <div class="grelha-projetos-recentes">
-                <a href="portfolio.html" class="polaroide polaroide-projeto">
+                <a href="first_moon_blood.html" class="polaroide polaroide-projeto">
                     <div class="fita"></div>
                     <img src="../images/Desenvolvimento 26.png" alt="First Moon Blood - Projeto por Sofia" loading="lazy">
                     <div class="legenda-polaroide">First Moon Blood</div>
                 </a>
 
-                <a href="portfolio.html" class="polaroide polaroide-projeto">
+                <a href="bloody_ruby.html" class="polaroide polaroide-projeto">
                     <div class="fita"></div>
                     <img src="../images/Desenvolvimento 31.png" alt="Bloody Ruby - Projeto por Sofia" loading="lazy">
                     <div class="legenda-polaroide">Bloody Ruby</div>
                 </a>
 
-                <a href="portfolio.html" class="polaroide polaroide-projeto">
+                <a href="cartazes_musicais.html" class="polaroide polaroide-projeto">
                     <div class="fita"></div>
                     <img src="../images/Desenvolvimento 36.png" alt="Cartazes musicais - Projeto por Sofia" loading="lazy">
                     <div class="legenda-polaroide">Cartazes musicais</div>

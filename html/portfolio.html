@@ -1,12 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-PT">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Navegue pela galeria completa de trabalhos de Sofia.">
-    <title>A Arte de Sofia | Portfólio</title>
-    <link rel="stylesheet" href="../css/style.css?v=3.1">
+    <link rel="stylesheet" href="../css/style.css?v=3.2">
     <link rel="icon" type="image/png" href="../images/favicon.png">
 </head>
 
@@ -14,13 +12,23 @@
     <header>
         <nav>
             <a href="index.html" class="logotipo">A Arte de Sofia</a>
-            <ul class="ligacoes-navegacao" id="nav-links">
+            <ul class="ligacoes-navegacao" id="lista-navegacao">
                 <li><a href="index.html">Sobre Mim</a></li>
                 <li><a href="services.html">Serviços</a></li>
-                <li><a href="portfolio.html" class="ativo">Portfólio</a></li>
+                <li class="navegacao-portfolio">
+                    <details>
+                        <summary class="ativo" aria-current="page">Portfólio</summary>
+                        <ul class="submenu-portfolio">
+                            <li><a href="portfolio.html" aria-current="page">Todos os projetos</a></li>
+                            <li><a href="bloody_ruby.html">Bloody Ruby</a></li>
+                            <li><a href="first_moon_blood.html">First Moon Blood</a></li>
+                            <li><a href="cartazes_musicais.html">Cartazes musicais</a></li>
+                        </ul>
+                    </details>
+                </li>
                 <li><a href="contact.html">Contactos</a></li>
             </ul>
-            <button type="button" class="alternar-menu" id="mobile-menu">
+            <button type="button" class="alternar-menu" id="botao-menu">
                 <div class="barra"></div>
                 <div class="barra"></div>
                 <div class="barra"></div>
@@ -28,86 +36,31 @@
         </nav>
     </header>
 
-    <main id="design">
+    <main>
         <h1>O Meu Portfólio</h1>
         <p>Estes são alguns dos mundos que criei ao longo de um ano de aprendizagem. Cada projeto simboliza a minha evolução num mundo criativo que ainda estou a descobrir a cada dia que passa. Os projetos aqui representados são os que mais demonstram essa evolução.</p>
 
-        <div id="portfolio-sections">
-            <section class="secao-projeto" id="bloody-ruby">
-                <h2 class="titulo-projeto">Bloody Ruby</h2>
-                <p class="descricao-projeto">O objetivo era a criação de uma identidade visual elegante, luxuosa, dramática e pudesse ser usada tanto num contexto histórico vitoriano como também nos tempos modernos. O principal problema foi explorar uma estética maximalista moderadamente sem cair no minimalismo e transmitir luxo e poder ao mesmo tempo. Durante o processo criativo explorou-se a palete de cores e estética através do moodboard, da tipografia, de filtros e da composição para criar peças coesas e reforcem a identidade da marca. As ferramentas usadas foram o Figma e o Affinity o que resultou numa identidade visual elegante e dramática que capta a estética pretendida e deixam espaço para mais caso queira voltar a revisitar o projeto.</p>
-                <div class="grelha-galeria grelha-galeria--bloody-ruby">
-                    <div class="coluna-galeria">
-                        <div class="polaroide">
-                            <div class="fita"></div><img src="../Porfólio/Bloody Ruby/Banner principal.jpg" alt="Banner principal de Bloody Ruby">
-                            <div class="legenda-imagem"><div class="legenda-polaroide">Banner principal</div><p class="descricao-imagem">Banner principal de Bloody Ruby, com uma estética centrada no romance, no drama e nos tons vermelhos.</p></div>
-                        </div>
-                        <div class="polaroide">
-                            <div class="fita"></div><img src="../Porfólio/Bloody Ruby/Banner principal V2.jpg" alt="Segunda versão do banner principal de Bloody Ruby">
-                            <div class="legenda-imagem"><div class="legenda-polaroide">Banner principal — 2.ª versão</div><p class="descricao-imagem">Segunda versão do banner principal de Bloody Ruby, que coloca a figura feminina no centro do poder.</p></div>
-                        </div>
-                        <div class="polaroide">
-                            <div class="fita"></div><img src="../Porfólio/Bloody Ruby/Convite.jpg" alt="Convite para o lançamento da coleção Bloody Ruby">
-                            <div class="legenda-imagem"><div class="legenda-polaroide">Convite</div><p class="descricao-imagem">Convite para o lançamento da nova coleção, concebido como uma carta intimista, com selo de cera vermelha e uma atmosfera misteriosa em que a figura da personagem se desvanece.</p></div>
-                        </div>
-                    </div>
-                    <div class="coluna-galeria">
-                        <div class="polaroide">
-                            <div class="fita"></div><img src="../Porfólio/Bloody Ruby/Bloody Ruby.png" alt="Brandboard da joalharia Bloody Ruby">
-                            <div class="legenda-imagem"><div class="legenda-polaroide">Brandboard</div><p class="descricao-imagem">Brandboard da joalharia Bloody Ruby, com o logótipo, a paleta de cores e exemplos da identidade aplicados a diferentes suportes.</p></div>
-                        </div>
-                    </div>
-                    <div class="coluna-galeria">
-                        <div class="polaroide">
-                            <div class="fita"></div><img src="../Porfólio/Bloody Ruby/Convite V2.png" alt="Segunda versão do convite Bloody Ruby">
-                            <div class="legenda-imagem"><div class="legenda-polaroide">Convite — 2.ª versão</div><p class="descricao-imagem">Segunda versão do convite de lançamento da nova coleção, com uma composição mais intimista, centrada na personagem e nas rosas vermelhas.</p></div>
-                        </div>
-                        <div class="polaroide">
-                            <div class="fita"></div><img src="../Porfólio/Bloody Ruby/Icon.jpg" alt="Icon de Bloody Ruby">
-                            <div class="legenda-imagem"><div class="legenda-polaroide">Icon</div><p class="descricao-imagem">Monograma de Bloody Ruby, apresentado num ambiente dramático.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <section class="projetos-recentes">
+            <div class="grelha-projetos-recentes">
+                <a href="bloody_ruby.html" class="polaroide polaroide-projeto">
+                    <div class="fita"></div>
+                    <img src="../images/Desenvolvimento 31.png" alt="Bloody Ruby - Projeto por Sofia" loading="lazy">
+                    <div class="legenda-polaroide">Bloody Ruby</div>
+                </a>
 
-            <section class="secao-projeto" id="cartazes-musicais">
-                <h2 class="titulo-projeto">Cartazes musicais</h2>
-                <p class="descricao-projeto">O objetivo era a criação de cartazes inspirados em músicas e tramas autorais que expressem os versos escolhidos. O problema que surgiu foi transmitir a atmosfera de cada canção para uma composição visual clara e coerente. Durante o processo criativo utilizou-se a seleção de PNGs e edição dos mesmos, tipografias, de filtros e paletes de cor associadas aos personagens para refletir o peso de cada música. A ferramenta utilizada foi o Figma que resultou em três cartazes distintos que contam cada um uma pequena história associada às músicas.</p>
-                <div class="grelha-galeria">
-                    <div class="polaroide">
-                        <div class="fita"></div><img src="../Porfólio/Cartazes musicais/A Rua.jpg" alt="Cartaz A Rua">
-                        <div class="legenda-imagem"><div class="legenda-polaroide">A Rua</div><p class="descricao-imagem">Cartaz inspirado na canção «A Rua», de Jão, e num universo criado por mim. O olhar da protagonista desafia o céu de Tavros e as suas tradições, sem perder a ligação ao passado.</p></div>
-                    </div>
-                    <div class="polaroide">
-                        <div class="fita"></div><img src="../Porfólio/Cartazes musicais/Combo da Sorte.png" alt="Cartaz Combo da Sorte">
-                        <div class="legenda-imagem"><div class="legenda-polaroide">Combo da Sorte</div><p class="descricao-imagem">Cartaz inspirado na canção «Combo da Sorte», de Marina Sena, e na história de amor da personagem, marcada por dificuldades que acaba por superar.</p></div>
-                    </div>
-                    <div class="polaroide">
-                        <div class="fita"></div><img src="../Porfólio/Cartazes musicais/Morte.jpg" alt="Cartaz Morte">
-                        <div class="legenda-imagem"><div class="legenda-polaroide">Morte</div><p class="descricao-imagem">Cartaz inspirado na canção «Morte», de Bea Duarte, com uma estética dramática, mística e intensa. Evoca o renascimento e a aceitação da morte como fim de um ciclo, não da vida.</p></div>
-                    </div>
-                </div>
-            </section>
+                <a href="first_moon_blood.html" class="polaroide polaroide-projeto">
+                    <div class="fita"></div>
+                    <img src="../images/Desenvolvimento 26.png" alt="First Moon Blood - Projeto por Sofia" loading="lazy">
+                    <div class="legenda-polaroide">First Moon Blood</div>
+                </a>
 
-            <section class="secao-projeto" id="first-moon-blood">
-                <h2 class="titulo-projeto">First Moon Blood</h2>
-                <p class="descricao-projeto">O objetivo deste projeto era a criação uma identidade visual sombria, intensa e poderosa centrada na personagem e na continuação da sua história. O maior problema encontrado foi explorar uma estética séria sem deixar a fantasia de lado, mas manter um caráter de poder e força. Durante a criação das peças foi usado PNGs editados, harmonia entre as cores e simbolismo que transmita a estética da personagem. A principal ferramenta utilizada foi o Figma e resultou numa identidade visual dramática e sombria que caracteriza a identidade da personagem.</p>
-                <div class="grelha-galeria">
-                    <div class="polaroide">
-                        <div class="fita"></div><img src="../Porfólio/First Moon Blood/Banner Principal.png" alt="Banner principal de First Moon Blood">
-                        <div class="legenda-imagem"><div class="legenda-polaroide">Banner principal</div><p class="descricao-imagem">Banner principal de First Moon Blood, com uma atmosfera gótica e a figura feminina ao centro, como símbolo de poder.</p></div>
-                    </div>
-                    <div class="polaroide">
-                        <div class="fita"></div><img src="../Porfólio/First Moon Blood/Banner Secundário.png" alt="Banner secundário de First Moon Blood">
-                        <div class="legenda-imagem"><div class="legenda-polaroide">Banner secundário</div><p class="descricao-imagem">Banner secundário de First Moon Blood, que conta a história da personagem e combina elementos góticos e vampíricos.</p></div>
-                    </div>
-                    <div class="polaroide">
-                        <div class="fita"></div><img src="../Porfólio/First Moon Blood/Icon.png" alt="Icon de First Moon Blood">
-                        <div class="legenda-imagem"><div class="legenda-polaroide">Icon</div><p class="descricao-imagem">Icon de First Moon Blood, centrado no mistério, no espelho e na aura vampírica e sedutora da personagem.</p></div>
-                    </div>
-                </div>
-            </section>
-        </div>
+                <a href="cartazes_musicais.html" class="polaroide polaroide-projeto">
+                    <div class="fita"></div>
+                    <img src="../images/Desenvolvimento 36.png" alt="Cartazes musicais - Projeto por Sofia" loading="lazy">
+                    <div class="legenda-polaroide">Cartazes musicais</div>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="rodape">

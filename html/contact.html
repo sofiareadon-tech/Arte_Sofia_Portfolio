@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Entre em contacto com a Sofia. Estou disponível para novos projetos, ideias criativas e colaborações na área de design.">
     <title>A Arte de Sofia | Contactos</title>
     <link rel="stylesheet" href="../css/style.css?v=3.1">
     <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -15,13 +13,23 @@
     <header>
         <nav>
             <div class="logotipo">A Arte de Sofia</div>
-            <ul class="ligacoes-navegacao" id="nav-links">
+            <ul class="ligacoes-navegacao" id="lista-navegacao">
                 <li><a href="index.html">Sobre Mim</a></li>
                 <li><a href="services.html">Serviços</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
+                <li class="navegacao-portfolio">
+                    <details>
+                        <summary>Portfólio</summary>
+                        <ul class="submenu-portfolio">
+                            <li><a href="portfolio.html">Todos os projetos</a></li>
+                            <li><a href="bloody_ruby.html">Bloody Ruby</a></li>
+                            <li><a href="first_moon_blood.html">First Moon Blood</a></li>
+                            <li><a href="cartazes_musicais.html">Cartazes musicais</a></li>
+                        </ul>
+                    </details>
+                </li>
                 <li><a href="contact.html" class="ativo">Contactos</a></li>
             </ul>
-            <button type="button" class="alternar-menu" id="mobile-menu">
+            <button type="button" class="alternar-menu" id="botao-menu">
                 <div class="barra"></div>
                 <div class="barra"></div>
                 <div class="barra"></div>
