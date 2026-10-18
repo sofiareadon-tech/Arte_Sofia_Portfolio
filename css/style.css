@@ -243,7 +243,6 @@ main {
   padding: 15px;
   box-shadow: var(--card-shadow);
   transform: rotate(-2deg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -253,11 +252,6 @@ main {
 }
 .polaroide:nth-child(even) {
   transform: rotate(3deg);
-}
-.polaroide:hover, .polaroide:focus-visible {
-  transform: rotate(0deg) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
-  z-index: 10;
 }
 .polaroide img {
   width: 100%;
@@ -403,7 +397,6 @@ strong, b {
   text-decoration: none;
   color: inherit;
   padding: 16px 16px 20px 16px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .polaroide-projeto:nth-child(1) {
   transform: rotate(-2.5deg);
@@ -419,11 +412,6 @@ strong, b {
 }
 .polaroide-projeto:nth-child(3) .fita {
   transform: translateX(-50%) rotate(-3deg);
-}
-.polaroide-projeto:hover, .polaroide-projeto:focus-visible {
-  transform: translateY(-8px) rotate(0deg) scale(1.04);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
-  z-index: 10;
 }
 .polaroide-projeto img {
   border-radius: 2px;
