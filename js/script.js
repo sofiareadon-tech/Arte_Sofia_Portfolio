@@ -1,149 +1,36 @@
-/* menu */
-function setupMenu() {
-    var menuButton = document.getElementById('mobile-menu');
-    var links = document.getElementById('nav-links');
+var menuButton = document.getElementById('mobile-menu');
+var menuLinks = document.getElementById('nav-links');
 
-    if (!menuButton || !links) {
-        return;
-    }
-
-    function setMenuOpen(isOpen) {
-        if (!isOpen && links.contains(document.activeElement)) {
+if (menuButton && menuLinks) {
+    function closeMenu() {
+        if (menuLinks.contains(document.activeElement)) {
             menuButton.focus();
         }
-        links.classList.toggle('ativo', isOpen);
-        menuButton.classList.toggle('menu-ativo', isOpen);
-        document.body.classList.toggle('menu-aberto', isOpen);
+
+        menuLinks.classList.remove('ativo');
+        menuButton.classList.remove('menu-ativo');
+        document.body.classList.remove('menu-aberto');
     }
 
-    setMenuOpen(false);
-
     menuButton.addEventListener('click', function () {
-        setMenuOpen(!menuButton.classList.contains('menu-ativo'));
+        if (menuLinks.classList.contains('ativo')) {
+            closeMenu();
+        } else {
+            menuLinks.classList.add('ativo');
+            menuButton.classList.add('menu-ativo');
+            document.body.classList.add('menu-aberto');
+        }
     });
 
-    links.addEventListener('click', function (event) {
+    menuLinks.addEventListener('click', function (event) {
         if (event.target.closest('a')) {
-            setMenuOpen(false);
+            closeMenu();
         }
     });
 
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
-            setMenuOpen(false);
+            closeMenu();
         }
     });
 }
-
-/* portfolio */
-function setupPortfolio() {
-    var gallery = document.getElementById('portfolio-sections');
-    var lightbox = document.getElementById('lightbox');
-    if (!gallery || !lightbox) return;
-
-    var slides = Array.from(lightbox.querySelectorAll('.diapositivo-ampliado'));
-    var details = Array.from(lightbox.querySelectorAll('[data-project-details]'));
-    var counter = document.getElementById('lightbox-counter');
-    var index = 0;
-    var returnFocus;
-    var closeTimer;
-
-    if (!slides.length) return;
-
-    function showSlides(number) {
-        if (number > slides.length) number = 1;
-        if (number < 1) number = slides.length;
-        index = number;
-
-        slides.forEach(function (slide, slideIndex) {
-            slide.style.display = slideIndex === index - 1 ? 'block' : 'none';
-        });
-        var project = slides[index - 1].dataset.project;
-        details.forEach(function (detail) {
-            detail.style.display = detail.dataset.projectDetails === project ? 'flex' : 'none';
-        });
-        if (counter) counter.textContent = index + ' / ' + slides.length;
-    }
-
-    function openModal(number) {
-        window.clearTimeout(closeTimer);
-        if (lightbox.style.display !== 'flex') returnFocus = document.activeElement;
-        showSlides(number);
-        lightbox.style.display = 'flex';
-        document.body.classList.add('ampliacao-aberta');
-        void lightbox.offsetWidth;
-        lightbox.classList.add('visivel');
-        document.querySelector('.fechar-ampliacao').focus();
-    }
-
-    function closeModal() {
-        lightbox.classList.remove('visivel');
-        document.body.classList.remove('ampliacao-aberta');
-        window.clearTimeout(closeTimer);
-        closeTimer = window.setTimeout(function () {
-            lightbox.style.display = 'none';
-            if (returnFocus && returnFocus.isConnected) returnFocus.focus();
-        }, 300);
-    }
-
-    function plusSlides(amount) {
-        showSlides(index + amount);
-    }
-
-    function openProjectFromAddress() {
-        var target = new URLSearchParams(window.location.search).get('project') || window.location.hash.slice(1);
-        if (!target) return;
-        var section = Array.from(gallery.querySelectorAll('.secao-projeto')).find(function (project) {
-            return project.id.toLowerCase() === target.toLowerCase().replace(/\s+/g, '-') ||
-                project.dataset.project.toLowerCase() === target.toLowerCase();
-        });
-        if (!section) return;
-
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        window.setTimeout(function () {
-            openModal(Number(section.querySelector('.item-portfolio').dataset.slide));
-        }, 250);
-    }
-
-    gallery.addEventListener('click', function (event) {
-        var slide = event.target.closest('.item-portfolio');
-        if (slide) openModal(Number(slide.dataset.slide));
-    });
-
-    lightbox.querySelector('.fechar-ampliacao').addEventListener('click', closeModal);
-    lightbox.querySelector('.anterior-ampliacao').addEventListener('click', function () {
-        plusSlides(-1);
-    });
-    lightbox.querySelector('.seguinte-ampliacao').addEventListener('click', function () {
-        plusSlides(1);
-    });
-    lightbox.addEventListener('click', function (event) {
-        if (event.target === lightbox) closeModal();
-    });
-    document.addEventListener('keydown', function (event) {
-        if (lightbox.style.display !== 'flex') return;
-        if (event.key === 'Escape') closeModal();
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-            event.preventDefault();
-            plusSlides(event.key === 'ArrowLeft' ? -1 : 1);
-        }
-        if (event.key === 'Tab') {
-            var buttons = lightbox.querySelectorAll('button:not([disabled])');
-            var first = buttons[0];
-            var last = buttons[buttons.length - 1];
-            if ((event.shiftKey && document.activeElement === first) ||
-                (!event.shiftKey && document.activeElement === last) ||
-                !lightbox.contains(document.activeElement)) {
-                event.preventDefault();
-                (event.shiftKey ? last : first).focus();
-            }
-        }
-    });
-
-    openProjectFromAddress();
-    window.addEventListener('hashchange', openProjectFromAddress);
-}
-
-/* Inicialização das funcionalidades */
-setupMenu();
-setupPortfolio();
