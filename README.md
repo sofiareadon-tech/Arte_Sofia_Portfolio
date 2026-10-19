@@ -30,7 +30,7 @@ Portfólio pessoal de design, ilustração, fotografia e comunicação visual, a
 - `js/script.js` — abre e fecha o menu de navegação
 - `images/` — imagens da página inicial, ícones dos serviços, favicon e outros recursos visuais
 - `Porfólio/` — imagens dos projetos apresentados na galeria
-- `fontes/` — tipografias locais, incluindo Lora, Amoria, Loverine, Crimson Pro e Playfair Display
+- `fontes/` — tipografias locais, incluindo Lora, Amoria, La Belle Aurore, Crimson Pro e Playfair Display
 
 ## Organização do código
 
