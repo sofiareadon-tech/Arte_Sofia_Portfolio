@@ -361,10 +361,14 @@ b {
   width: 120px;
   height: auto;
 }
-.imagem-destaque {
+.galeria-fotos-destaque {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  gap: 2rem;
   width: 100%;
   max-width: 420px;
+  margin: 0 auto;
 }
 .convite-criacao {
   margin: 3rem 0 4rem;
@@ -455,6 +459,9 @@ b {
   text-decoration: none;
   transition: background-color 0.3s;
 }
+.botao-hero-zone {
+  margin-top: 1rem;
+}
 .botao-explorar-universos:hover {
   background-color: #8ab6d6;
 }
@@ -494,6 +501,150 @@ b {
   text-align: center;
   text-decoration: none;
 }
+.blocos-construcao-portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+.bloco-construcao {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px dashed #b4d5ec;
+}
+.bloco-construcao:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.bloco-pesquisa {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+}
+.texto-construcao-portfolio {
+  min-width: 0;
+  text-align: left;
+}
+.texto-construcao-portfolio h2 {
+  margin-bottom: 1rem;
+  color: #7a65a6;
+  font-family: 'Amoria', serif;
+  font-size: 1.8rem;
+}
+.texto-construcao-portfolio p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.nota-criterios-portfolio {
+  margin: 1.5rem 0 0;
+  background-color: #e8e0f4;
+  text-align: left;
+}
+.nota-criterios-portfolio ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 2rem;
+  padding: 0;
+}
+.nota-criterios-portfolio li {
+  position: relative;
+  padding-left: 1.75rem;
+  line-height: 1.6;
+  list-style: none;
+}
+.nota-criterios-portfolio li::before {
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url('../images/favicon.png') center / contain no-repeat;
+  content: '';
+}
+.imagem-construcao {
+  width: 100%;
+  margin: 0 auto;
+}
+.imagem-sitemap-portfolio {
+  max-width: 520px;
+  padding: 14px 14px 22px;
+}
+.imagem-sooh-wish-portfolio {
+  max-width: 270px;
+  padding: 12px 12px 20px;
+}
+.imagem-arte-sofia-portfolio {
+  max-width: 280px;
+  padding: 12px 12px 20px;
+}
+.bloco-tipografia {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+.bloco-tipografia > .texto-construcao-portfolio {
+  padding: 1.5rem;
+  border: 1px dashed #b4d5ec;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.65);
+}
+.bloco-prototipagem {
+  display: block;
+}
+.nota-prototipagem {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: left;
+}
+.nota-prototipagem h2 {
+  margin-bottom: 1rem;
+  color: #7a65a6;
+  font-family: 'Amoria', serif;
+  font-size: 1.8rem;
+  text-align: center;
+}
+.nota-prototipagem > p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.galeria-prototipagem {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+.coluna-prototipagem {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+.galeria-prototipagem figure {
+  width: 100%;
+  margin: 0;
+  padding: 10px 10px 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+.galeria-prototipagem img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.galeria-prototipagem figcaption {
+  margin-top: 0.6rem;
+  color: #7a65a6;
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+}
 .descricao-projeto {
   margin: 0 0 2rem;
   padding: 1.5rem;
@@ -525,9 +676,20 @@ b {
   padding: 0 0 2rem;
   border-bottom: 2px dashed #b4d5ec;
 }
+.item-detalhe-projeto:nth-child(even) {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+}
 .item-detalhe-projeto:last-child {
   padding-bottom: 0;
   border-bottom: 0;
+}
+.item-detalhe-projeto:nth-child(even) .polaroide-detalhe {
+  grid-column: 2;
+  grid-row: 1;
+}
+.item-detalhe-projeto:nth-child(even) .legenda-detalhe-projeto {
+  grid-column: 1;
+  grid-row: 1;
 }
 .polaroide-detalhe {
   width: 100%;
@@ -827,8 +989,21 @@ footer {
   header nav {
     padding: 0.8rem 5%;
   }
-  .item-detalhe-projeto {
+  .item-detalhe-projeto,
+  .item-detalhe-projeto:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
+  }
+  .item-detalhe-projeto:nth-child(even) .polaroide-detalhe,
+  .item-detalhe-projeto:nth-child(even) .legenda-detalhe-projeto {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .legenda-detalhe-projeto {
+    text-align: center;
+  }
+  .legenda-detalhe-projeto h2 {
+    text-align: center;
   }
   .ligacoes-navegacao {
     position: fixed;
@@ -882,7 +1057,7 @@ footer {
   }
   .hero-zone {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    row-gap: 2.5rem;
     margin: 1.5rem 0 3rem;
   }
   .texto-hero-zone {
@@ -909,9 +1084,8 @@ footer {
   .texto-destaque h1 {
     margin-bottom: 0.8rem;
   }
-  .imagem-destaque {
+  .galeria-fotos-destaque {
     max-width: 320px;
-    margin: 0 auto;
   }
   .nota-papel {
     padding: 1.8rem 1.6rem;
@@ -939,6 +1113,43 @@ footer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  .bloco-construcao,
+  .bloco-pesquisa,
+  .bloco-tipografia {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .bloco-pesquisa .imagem-construcao {
+    grid-row: 2;
+  }
+  .nota-criterios-portfolio ul {
+    grid-template-columns: 1fr;
+  }
+  .galeria-prototipagem {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .coluna-prototipagem {
+    gap: 1rem;
+  }
+  .coluna-prototipagem:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1rem;
+  }
+  .imagem-sitemap-portfolio,
+  .imagem-sooh-wish-portfolio,
+  .imagem-arte-sofia-portfolio {
+    max-width: 420px;
+  }
+  .galeria-prototipagem {
+    max-width: 660px;
+  }
+  .bloco-tipografia > .texto-construcao-portfolio {
+    padding: 1.25rem;
+  }
 }
 @media (max-width: 600px) {
   .logotipo {
@@ -949,7 +1160,6 @@ footer {
     margin-top: 1rem;
   }
   .hero-zone {
-    gap: 1rem;
     margin-top: 1rem;
   }
   .texto-hero-zone h1 {
@@ -973,14 +1183,7 @@ footer {
     flex-wrap: wrap;
   }
   .item-detalhe-projeto {
-    grid-template-columns: 1fr;
     gap: 1rem;
-  }
-  .legenda-detalhe-projeto {
-    text-align: center;
-  }
-  .legenda-detalhe-projeto h2 {
-    text-align: center;
   }
   .texto-destaque h1 {
     font-size: 1.75rem;
@@ -993,8 +1196,52 @@ footer {
   .nota-papel {
     padding: 1.5rem 1.25rem;
   }
-  .imagem-destaque {
+  .galeria-fotos-destaque {
     max-width: 270px;
+  }
+  .galeria-prototipagem {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    max-width: 440px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .imagem-sitemap-portfolio {
+    max-width: 380px;
+  }
+  .imagem-sooh-wish-portfolio,
+  .imagem-arte-sofia-portfolio {
+    max-width: 250px;
+  }
+  .coluna-prototipagem {
+    display: contents;
+  }
+  .prototipo-inicio,
+  .prototipo-servicos,
+  .prototipo-contactos,
+  .prototipo-portfolio,
+  .prototipo-pagina-projeto {
+    align-self: start;
+  }
+  .prototipo-inicio {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .prototipo-portfolio {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .prototipo-servicos {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .prototipo-pagina-projeto {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .prototipo-contactos {
+    grid-column: 1;
+    grid-row: 3;
   }
   .polaroide {
     margin-bottom: 1rem;
@@ -1031,6 +1278,16 @@ footer {
   }
   .titulo-projeto {
     font-size: 1.8rem;
+  }
+  .galeria-prototipagem {
+    max-width: 380px;
+  }
+  .imagem-sitemap-portfolio {
+    max-width: 340px;
+  }
+  .imagem-sooh-wish-portfolio,
+  .imagem-arte-sofia-portfolio {
+    max-width: 230px;
   }
   .polaroide-projeto .legenda-polaroide {
     font-size: 1.4rem;
