@@ -322,6 +322,9 @@ b {
   font-size: 1.35rem;
   line-height: 1.6;
 }
+.texto-hero-zone .imagem-identidade-rodape {
+  margin-top: 0.5rem;
+}
 .polaroide-hero-zone {
   max-width: 560px;
   margin: 0 auto;
@@ -458,9 +461,6 @@ b {
   font-size: 1.2rem;
   text-decoration: none;
   transition: background-color 0.3s;
-}
-.botao-hero-zone {
-  margin-top: 1rem;
 }
 .botao-explorar-universos:hover {
   background-color: #8ab6d6;
