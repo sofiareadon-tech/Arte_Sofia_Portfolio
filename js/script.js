@@ -1,6 +1,12 @@
 var botaoMenu = document.getElementById('botao-menu');
 var ligacoesMenu = document.getElementById('lista-navegacao');
 
+if (botaoMenu && ligacoesMenu && ligacoesMenu.querySelector('.navegacao-portfolio summary.ativo')) {
+    botaoMenu.setAttribute('aria-label', 'Abrir menu de navegação — Portfólio ativo');
+} else if (botaoMenu) {
+    botaoMenu.setAttribute('aria-label', 'Abrir menu de navegação');
+}
+
 function fecharMenu() {
     if (ligacoesMenu.contains(document.activeElement)) {
         botaoMenu.focus();
