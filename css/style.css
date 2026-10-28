@@ -91,7 +91,7 @@ header nav {
 .logotipo {
   color: #7a65a6;
   font-family: 'Amoria', serif;
-  font-size: 35.2px;
+  font-size: 35px;
   font-weight: bold;
   text-decoration: none;
 }
@@ -127,7 +127,7 @@ header nav {
 .ligacoes-navegacao summary {
   display: flex;
   align-items: center;
-  gap: 6.4px;
+  gap: 6px;
   color: #7a65a6;
   font-size: 16px;
   font-weight: 600;
@@ -168,7 +168,7 @@ header nav {
 }
 .submenu-portfolio a {
   display: block;
-  padding: 8.8px 16px;
+  padding: 9px 16px;
   white-space: nowrap;
 }
 .submenu-portfolio a:hover {
@@ -232,6 +232,35 @@ main {
   box-shadow: inset -2px -2px 5px #0000004D, 2px 2px 5px #00000033;
   content: '';
 }
+.nota-introdutoria {
+  position: relative;
+  display: inline-block;
+  max-width: 720px;
+  margin: 20px auto 32px;
+  padding: 22px 28px 20px;
+  border: 1px solid #b8d2e6;
+  background: #dbe9f4;
+  box-shadow: 3px 4px 10px #00000014;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+  transform: rotate(-0.5deg);
+}
+.nota-introdutoria::before {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 64px;
+  height: 18px;
+  background: #8ab6d699;
+  box-shadow: 0 1px 3px #0000001A;
+  content: '';
+  transform: translateX(-50%) rotate(-2deg);
+  pointer-events: none;
+}
+.nota-introdutoria-portfolio {
+  max-width: 820px;
+}
 h1,
 h2,
 h3 {
@@ -245,11 +274,11 @@ h1 {
 }
 h2 {
   margin-bottom: 8px;
-  font-size: 35.2px;
+  font-size: 35px;
 }
 h3 {
   margin-bottom: 8px;
-  font-size: 28.8px;
+  font-size: 29px;
 }
 h4 {
   margin-bottom: 8px;
@@ -304,7 +333,7 @@ b {
 }
 .hero-zone {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: 0.7fr 1.3fr;
   align-items: center;
   gap: 48px;
   margin: 32px 0 32px;
@@ -316,15 +345,17 @@ b {
   text-align: left;
 }
 .texto-hero-zone h1 {
+  display: block;
   margin-bottom: 16px;
   font-family: 'Amoria', serif;
   font-size: 56px;
   line-height: 1.2;
+  text-align: center;
 }
 .texto-hero-zone p {
   color: #8ab6d6;
   font-family: 'La Belle Aurore', cursive;
-  font-size: 21.6px;
+  font-size: 22px;
   line-height: 1.6;
   text-align: center;
 }
@@ -332,7 +363,7 @@ b {
   margin-top: 8px;
 }
 .polaroide-hero-zone {
-  max-width: 560px;
+  max-width: 620px;
   margin: 0 auto;
   padding-bottom: 38px;
   transform: rotate(2deg);
@@ -340,8 +371,7 @@ b {
 .imagem-hero-zone {
   display: block;
   width: 100%;
-  max-height: 460px;
-  object-fit: contain;
+  height: auto;
 }
 .destaque {
   display: flex;
@@ -360,7 +390,7 @@ b {
 }
 .texto-destaque p {
   margin-bottom: 16px;
-  font-size: 19.2px;
+  font-size: 19px;
 }
 .assinatura {
   margin-top: 24px;
@@ -376,7 +406,7 @@ b {
   flex-direction: column;
   gap: 32px;
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
   margin: 0 auto;
 }
 .convite-criacao {
@@ -391,7 +421,7 @@ b {
   margin-bottom: 24px;
   color: #7a65a6;
   font-family: 'Amoria', serif;
-  font-size: 35.2px;
+  font-size: 35px;
 }
 .botoes-convite {
   display: flex;
@@ -406,7 +436,7 @@ b {
   background-color: #7a65a6;
   color: #fff;
   font-family: 'Amoria', serif;
-  font-size: 19.2px;
+  font-size: 19px;
   text-decoration: none;
   transition: background-color 0.3s;
 }
@@ -422,7 +452,7 @@ b {
 .titulo-projetos-recentes {
   display: inline-block;
   margin-bottom: 12px;
-  font-size: 51.2px;
+  font-size: 51px;
 }
 .introducao-projetos-recentes {
   margin-bottom: 32px;
@@ -431,7 +461,7 @@ b {
   display: block;
   width: 70px;
   height: 3px;
-  margin: 9.6px auto 0;
+  margin: 10px auto 0;
   border-radius: 2px;
   background: #b4d5ec;
   content: '';
@@ -441,20 +471,25 @@ b {
 }
 .titulo-projeto {
   margin: 24px 0 24px;
-  padding-bottom: 9.6px;
+  padding-bottom: 10px;
   border-bottom: 3px dashed #b4d5ec;
   color: #7a65a6;
   font-family: 'Amoria', serif;
-  font-size: 38.4px;
+  font-size: 38px;
   font-weight: 600;
   text-align: left;
 }
 .grelha-projetos-recentes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: start;
-  gap: 40px;
+  gap: 32px;
   width: 100%;
+}
+.grelha-projetos-recentes > .polaroide-projeto:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 16px);
 }
 .botao-explorar-universos {
   display: inline-block;
@@ -464,7 +499,7 @@ b {
   background-color: #7a65a6;
   color: #fff;
   font-family: 'Amoria', serif;
-  font-size: 19.2px;
+  font-size: 19px;
   text-decoration: none;
   transition: background-color 0.3s;
 }
@@ -472,7 +507,7 @@ b {
   background-color: #8ab6d6;
 }
 .polaroide-projeto {
-  padding: 16px 16px 20px;
+  padding: 10px 10px 20px;
   color: inherit;
   text-decoration: none;
 }
@@ -498,19 +533,31 @@ b {
   margin: 14px 0 4px;
   color: #7a65a6;
   font-family: 'La Belle Aurore', cursive;
-  font-size: 29.6px;
+  font-size: 30px;
   text-align: center;
   text-decoration: none;
 }
 .descricao-projeto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
   margin: 0 0 32px;
   padding: 24px;
   border: 1px dashed #b4d5ec;
   border-radius: 12px;
   background: #FFFFFF99;
-  font-size: 15.36px;
+}
+.descricao-projeto p {
+  align-self: stretch;
+  font-size: 15px;
   line-height: 1.8;
   text-align: left;
+}
+.logo-projeto-introducao {
+  width: 64px;
+  height: auto;
+  object-fit: contain;
 }
 .pagina-detalhe-projeto {
   text-align: left;
@@ -526,15 +573,12 @@ b {
 }
 .item-detalhe-projeto {
   display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 40px;
   margin: 0;
   padding: 0 0 32px;
   border-bottom: 2px dashed #b4d5ec;
-}
-.item-detalhe-projeto:nth-child(even) {
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
 }
 .item-detalhe-projeto:last-child {
   padding-bottom: 0;
@@ -550,17 +594,23 @@ b {
 }
 .polaroide-detalhe {
   width: 100%;
-  max-width: 360px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .polaroide-brandboard {
-  max-width: 300px;
+  max-width: 520px;
+}
+.legenda-detalhe-projeto {
+  padding: 24px;
+  border: 1px dashed #b4d5ec;
+  border-radius: 12px;
+  background: #FFFFFF99;
 }
 .legenda-detalhe-projeto h2 {
   margin-bottom: 12px;
   color: #7a65a6;
   font-family: 'Amoria', serif;
-  font-size: 28.8px;
+  font-size: 29px;
   text-align: left;
 }
 .legenda-detalhe-projeto p {
@@ -591,7 +641,7 @@ b {
 .icone-servico {
   margin-bottom: 4px;
   color: #7a65a6;
-  font-size: 28.8px;
+  font-size: 29px;
   line-height: 1;
   opacity: 0.7;
 }
@@ -606,7 +656,7 @@ b {
   margin-top: 12px;
   border-bottom: 1px dotted #7a65a6;
   color: #7a65a6;
-  font-size: 14.08px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.3px;
   text-decoration: none;
@@ -666,7 +716,7 @@ form {
 .campo-formulario {
   display: flex;
   flex-direction: column;
-  gap: 6.4px;
+  gap: 6px;
 }
 input,
 textarea {
@@ -697,7 +747,7 @@ button {
   background-color: #7a65a6;
   color: #fff;
   font-family: 'Amoria', serif;
-  font-size: 19.2px;
+  font-size: 19px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -718,7 +768,7 @@ footer {
 }
 .contentor-rodape {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.2fr);
+  grid-template-columns: 1.2fr 1fr 1.2fr;
   align-items: start;
   justify-items: center;
   gap: 48px;
@@ -765,7 +815,7 @@ footer {
   border-radius: 20px;
   background: #b4d5ec;
   color: #7a65a6;
-  font-size: 13.6px;
+  font-size: 14px;
   font-weight: bold;
   text-decoration: none;
 }
@@ -780,7 +830,7 @@ footer {
   max-width: 300px;
   margin: 16px auto 0;
   color: #666;
-  font-size: 15.2px;
+  font-size: 15px;
   font-style: italic;
 }
 .contentor-rodape > .identidade {
@@ -805,24 +855,26 @@ footer {
   padding-top: 32px;
   border-top: 1px solid #eee;
   color: #999;
-  font-size: 14.4px;
+  font-size: 14px;
   text-align: center;
 }
 @media (max-width: 900px) {
   header nav {
     padding: 16px 3%;
   }
+  .hero-zone {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 32px;
+  }
   .destaque {
     gap: 32px;
   }
   .grelha-projetos-recentes {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 24px;
   }
   .grelha-projetos-recentes > .polaroide-projeto:nth-child(odd):last-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 360px;
+    width: calc(50% - 12px);
   }
   .contentor-rodape {
     grid-template-columns: 1fr 1fr;
@@ -840,11 +892,10 @@ footer {
     width: 100%;
   }
   header nav {
-    padding: 12.8px 5%;
+    padding: 13px 5%;
   }
-  .item-detalhe-projeto,
-  .item-detalhe-projeto:nth-child(even) {
-    grid-template-columns: minmax(0, 1fr);
+  .item-detalhe-projeto {
+    grid-template-columns: 1fr;
     gap: 24px;
   }
   .item-detalhe-projeto:nth-child(even) .polaroide-detalhe,
@@ -882,7 +933,7 @@ footer {
   }
   .ligacoes-navegacao a,
   .ligacoes-navegacao summary {
-    font-size: 20.8px;
+    font-size: 21px;
   }
   .alternar-menu {
     display: flex;
@@ -890,7 +941,7 @@ footer {
   .submenu-portfolio {
     position: static;
     min-width: 0;
-    padding: 5.6px 0;
+    padding: 6px 0;
     border: 2px dashed #8ab6d6;
     background: #00000000;
     box-shadow: none;
@@ -919,9 +970,6 @@ footer {
   .texto-hero-zone h1 {
     font-size: 48px;
   }
-  .imagem-hero-zone {
-    max-height: none;
-  }
   .introducao-designer {
     margin-top: 32px;
     padding-top: 32px;
@@ -931,17 +979,17 @@ footer {
     max-width: 520px;
   }
   .texto-destaque p {
-    margin-bottom: 13.6px;
-    font-size: 16.8px;
+    margin-bottom: 14px;
+    font-size: 17px;
   }
   .texto-destaque h1 {
-    margin-bottom: 12.8px;
+    margin-bottom: 13px;
   }
   .galeria-fotos-destaque {
-    max-width: 320px;
+    max-width: 440px;
   }
   .nota-papel {
-    padding: 28.8px 25.6px;
+    padding: 29px 26px;
     border-radius: 4px;
     box-shadow: 4px 4px 14px #00000014;
   }
@@ -955,7 +1003,7 @@ footer {
     padding: 8px;
   }
   .legenda-polaroide {
-    font-size: 17.6px;
+    font-size: 18px;
   }
   .fita {
     top: -10px;
@@ -972,17 +1020,17 @@ footer {
     font-size: 32px;
   }
   .destaque {
-    gap: 28.8px;
+    gap: 29px;
     margin-top: 16px;
   }
   .hero-zone {
     margin-top: 16px;
   }
   .texto-hero-zone h1 {
-    font-size: 38.4px;
+    font-size: 38px;
   }
   .texto-hero-zone p {
-    font-size: 17.6px;
+    font-size: 18px;
   }
   .introducao-designer {
     margin-top: 24px;
@@ -993,7 +1041,7 @@ footer {
     padding: 32px 16px;
   }
   .convite-criacao h2 {
-    font-size: 28.8px;
+    font-size: 29px;
   }
   .botoes-convite {
     flex-wrap: wrap;
@@ -1006,22 +1054,22 @@ footer {
   }
   .texto-destaque p {
     margin-bottom: 12px;
-    font-size: 15.68px;
+    font-size: 16px;
     line-height: 1.55;
   }
   .nota-papel {
     padding: 24px 20px;
   }
-  .galeria-fotos-destaque {
-    max-width: 270px;
-  }
   .polaroide {
     margin-bottom: 16px;
     padding: 6px 6px 20px;
   }
+  .polaroide-projeto {
+    padding: 10px 10px 20px;
+  }
   .legenda-polaroide {
     margin-top: 5px;
-    font-size: 15.2px;
+    font-size: 15px;
   }
   .fita {
     top: -8px;
@@ -1031,8 +1079,13 @@ footer {
   .grelha-projetos-recentes {
     grid-template-columns: 1fr;
     gap: 32px;
-    max-width: 380px;
+    max-width: 600px;
     margin: 0 auto;
+  }
+  .grelha-projetos-recentes > .polaroide-projeto:nth-child(odd):last-child {
+    grid-column: auto;
+    justify-self: stretch;
+    width: 100%;
   }
 }
 @media (max-width: 480px) {
@@ -1043,16 +1096,16 @@ footer {
     font-size: 24px;
   }
   h3 {
-    font-size: 19.2px;
+    font-size: 19px;
   }
   .titulo-projetos-recentes {
-    font-size: 35.2px;
+    font-size: 35px;
   }
   .titulo-projeto {
-    font-size: 28.8px;
+    font-size: 29px;
   }
   .polaroide-projeto .legenda-polaroide {
-    font-size: 22.4px;
+    font-size: 22px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
