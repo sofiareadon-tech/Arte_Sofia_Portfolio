@@ -983,7 +983,11 @@ footer {
     row-gap: 40px;
     margin: 24px 0 48px;
   }
+  .polaroide-hero-zone {
+    grid-row: 1;
+  }
   .texto-hero-zone {
+    grid-row: 2;
     text-align: center;
   }
   .texto-hero-zone h1 {
@@ -1046,10 +1050,22 @@ footer {
     margin-top: 16px;
   }
   .texto-hero-zone h1 {
-    font-size: 38px;
+    font-size: 36px;
   }
   .texto-hero-zone p {
-    font-size: 18px;
+    font-size: 22px;
+  }
+  .texto-hero-zone .imagem-identidade-rodape {
+    width: 120px;
+  }
+  .identidade .logotipo {
+    font-size: 28px;
+  }
+  .identidade p {
+    font-size: 17px;
+  }
+  .identidade .imagem-identidade-rodape {
+    width: 100px;
   }
   .introducao-designer {
     margin-top: 24px;
